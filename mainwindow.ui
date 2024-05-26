@@ -51,7 +51,7 @@
           <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -586,6 +586,19 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="shengchengdaojulujing">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>生成刀具路径</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="jinxingfangzhen">
             <property name="minimumSize">
              <size>
@@ -1013,7 +1026,7 @@
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>优化方法</string>
+                <string>逼近方法</string>
                </property>
               </widget>
              </item>
@@ -1029,7 +1042,7 @@
                 <string>等间距</string>
                </property>
                <property name="checked">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -1043,6 +1056,22 @@
                </property>
                <property name="text">
                 <string>等误差</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="bijinfangfa">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Ciallo～(∠・ω&lt; )⌒☆</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -1274,19 +1303,6 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_37">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>最大误差：</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <widget class="QLabel" name="zuidawuchaxianshi">
          <property name="text">
@@ -1298,6 +1314,19 @@
         <widget class="QLabel" name="quxianduanshuxianshi">
          <property name="text">
           <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_37">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>最大误差：</string>
          </property>
         </widget>
        </item>
@@ -1381,6 +1410,22 @@
     <hint type="destinationlabel">
      <x>201</x>
      <y>647</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xuanzequxian</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>bijinfangfa</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>220</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>615</y>
     </hint>
    </hints>
   </connection>

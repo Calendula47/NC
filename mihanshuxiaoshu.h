@@ -28,6 +28,16 @@ extern int changdu_dengchang;
 extern int changdu_dengwucha;
 extern int changdu_compensate;
 extern int error_flag;
-
+extern double *x_dengchangdu;
+extern double *y_dengchangdu;
+extern double *x_dengwucha;
+extern double *y_dengwucha;
+extern double *x_toolcompensate;
+extern double *y_toolcompensate;
+extern double dengchang_max_error;
+extern std::vector<double> changdu_x_nodes;
+extern std::vector<double> changdu_y_nodes;
+extern std::vector<double> dengwucha_x_nodes;
+extern std::vector<double> dengwucha_y_nodes;
 
 #endif

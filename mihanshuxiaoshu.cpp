@@ -17,7 +17,7 @@ MIHANSHUXIAOSHU::~MIHANSHUXIAOSHU()
 int changdu_dengchang;
 int changdu_dengwucha;
 int changdu_compensate;
-int error_flag;
+int error_flag = 0;
 double *x_dengchangdu = new double[32*1024*1024]; // 等间距的x数组存放
 double *y_dengchangdu = new double[32*1024*1024]; // 等间距的y数组存放
 double *x_dengwucha = new double[32*1024*1024]; // 等误差的x数组存放
@@ -81,6 +81,10 @@ double MIHANSHUXIAOSHU::dengchang_zuobiao(double a, double b, double zhishu, dou
     int num_intervals = ceil((b - a) / max_error); //计算节点间隔的个数
     double step_size = (b - a) / num_intervals; //计算节点间隔的长度
     double x = a; // 当前节点的x坐标
+
+    changdu_x_nodes.clear();
+    changdu_y_nodes.clear();//重置坐标点
+
     while (x < b) {
         changdu_x_nodes.push_back(x);
         changdu_y_nodes.push_back(mihanshu(x, zhishu));
@@ -113,6 +117,9 @@ double MIHANSHUXIAOSHU::dengchang_zuobiao(double a, double b, double zhishu, dou
 //等误差每个节点坐标
 double MIHANSHUXIAOSHU::dengwucha_zuobiao(double a, double b, double zhishu,double deng_error)
 {
+    dengwucha_x_nodes.clear();
+    dengwucha_y_nodes.clear();
+
     dengwucha_x_nodes.push_back(a);
     double new_node;//第一个节点
     double init_step = 0.1;//设置初始步长
@@ -225,6 +232,7 @@ void MIHANSHUXIAOSHU::compute_toolcompensateleft(int chabu_type, double toolleft
 
 void MIHANSHUXIAOSHU::summit_error()
 {
+    error_flag = 0;
     for(int i=1;i<changdu_compensate;i++)
     {
         if(x_toolcompensate[i-1]>x_toolcompensate[i])

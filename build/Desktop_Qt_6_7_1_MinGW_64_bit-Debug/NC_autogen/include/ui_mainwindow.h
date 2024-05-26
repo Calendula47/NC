@@ -84,6 +84,7 @@ public:
     QWidget *widget_3;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *shengchenglujing;
+    QPushButton *shengchengdaojulujing;
     QPushButton *jinxingfangzhen;
     QPushButton *shengchengNC;
     QWidget *widget;
@@ -123,6 +124,7 @@ public:
     QLabel *label_29;
     QRadioButton *dengjianju;
     QRadioButton *dengwucha;
+    QRadioButton *bijinfangfa;
     QWidget *wuchashezhi;
     QHBoxLayout *horizontalLayout_10;
     QLabel *label_39;
@@ -143,9 +145,9 @@ public:
     QGroupBox *groupBox_5;
     QGridLayout *gridLayout_5;
     QLabel *label_38;
-    QLabel *label_37;
     QLabel *zuidawuchaxianshi;
     QLabel *quxianduanshuxianshi;
+    QLabel *label_37;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -463,6 +465,12 @@ public:
 
         horizontalLayout_2->addWidget(shengchenglujing);
 
+        shengchengdaojulujing = new QPushButton(widget_3);
+        shengchengdaojulujing->setObjectName("shengchengdaojulujing");
+        shengchengdaojulujing->setMinimumSize(QSize(120, 30));
+
+        horizontalLayout_2->addWidget(shengchengdaojulujing);
+
         jinxingfangzhen = new QPushButton(widget_3);
         jinxingfangzhen->setObjectName("jinxingfangzhen");
         jinxingfangzhen->setMinimumSize(QSize(120, 30));
@@ -683,7 +691,7 @@ public:
         dengjianju->setObjectName("dengjianju");
         sizePolicy1.setHeightForWidth(dengjianju->sizePolicy().hasHeightForWidth());
         dengjianju->setSizePolicy(sizePolicy1);
-        dengjianju->setChecked(true);
+        dengjianju->setChecked(false);
 
         horizontalLayout_4->addWidget(dengjianju);
 
@@ -693,6 +701,14 @@ public:
         dengwucha->setSizePolicy(sizePolicy1);
 
         horizontalLayout_4->addWidget(dengwucha);
+
+        bijinfangfa = new QRadioButton(widget_6);
+        bijinfangfa->setObjectName("bijinfangfa");
+        sizePolicy1.setHeightForWidth(bijinfangfa->sizePolicy().hasHeightForWidth());
+        bijinfangfa->setSizePolicy(sizePolicy1);
+        bijinfangfa->setChecked(true);
+
+        horizontalLayout_4->addWidget(bijinfangfa);
 
 
         verticalLayout_3->addWidget(widget_6);
@@ -806,13 +822,6 @@ public:
 
         gridLayout_5->addWidget(label_38, 1, 0, 1, 1);
 
-        label_37 = new QLabel(groupBox_5);
-        label_37->setObjectName("label_37");
-        sizePolicy.setHeightForWidth(label_37->sizePolicy().hasHeightForWidth());
-        label_37->setSizePolicy(sizePolicy);
-
-        gridLayout_5->addWidget(label_37, 0, 0, 1, 1);
-
         zuidawuchaxianshi = new QLabel(groupBox_5);
         zuidawuchaxianshi->setObjectName("zuidawuchaxianshi");
 
@@ -822,6 +831,13 @@ public:
         quxianduanshuxianshi->setObjectName("quxianduanshuxianshi");
 
         gridLayout_5->addWidget(quxianduanshuxianshi, 1, 1, 1, 1);
+
+        label_37 = new QLabel(groupBox_5);
+        label_37->setObjectName("label_37");
+        sizePolicy.setHeightForWidth(label_37->sizePolicy().hasHeightForWidth());
+        label_37->setSizePolicy(sizePolicy);
+
+        gridLayout_5->addWidget(label_37, 0, 0, 1, 1);
 
 
         gridLayout->addWidget(groupBox_5, 4, 0, 1, 1);
@@ -840,8 +856,9 @@ public:
         QObject::connect(dengwucha, &QRadioButton::toggled, yunxuwuchashezhi, &QWidget::setHidden);
         QObject::connect(dengjianju, &QRadioButton::toggled, wuchashezhi, &QWidget::setHidden);
         QObject::connect(dengwucha, &QRadioButton::toggled, wuchashezhi, &QWidget::setVisible);
+        QObject::connect(xuanzequxian, &QTabWidget::currentChanged, bijinfangfa, qOverload<>(&QRadioButton::toggle));
 
-        xuanzequxian->setCurrentIndex(1);
+        xuanzequxian->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -875,6 +892,7 @@ public:
         xuanzequxian->setTabText(xuanzequxian->indexOf(tab_2), QCoreApplication::translate("MainWindow", "\344\275\231\345\274\246\345\212\240\351\200\237\345\272\246\347\233\230\345\275\242\345\207\270\350\275\256", nullptr));
         label_35->setText(QCoreApplication::translate("MainWindow", "\345\233\276\345\203\217\347\274\251\346\224\276:", nullptr));
         shengchenglujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220\345\216\237\345\247\213\346\233\262\347\272\277", nullptr));
+        shengchengdaojulujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220\345\210\200\345\205\267\350\267\257\345\276\204", nullptr));
         jinxingfangzhen->setText(QCoreApplication::translate("MainWindow", "\350\277\233\350\241\214\345\212\240\345\267\245\344\273\277\347\234\237", nullptr));
         shengchengNC->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220NC\344\273\243\347\240\201", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "\346\234\272\345\272\212\345\217\202\346\225\260", nullptr));
@@ -894,9 +912,10 @@ public:
         youdaobu->setText(QCoreApplication::translate("MainWindow", "\345\217\263\345\210\200\350\241\245", nullptr));
         label_31->setText(QCoreApplication::translate("MainWindow", "\345\210\200\345\205\267\345\215\212\345\276\204", nullptr));
         label_30->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
-        label_29->setText(QCoreApplication::translate("MainWindow", "\344\274\230\345\214\226\346\226\271\346\263\225", nullptr));
+        label_29->setText(QCoreApplication::translate("MainWindow", "\351\200\274\350\277\221\346\226\271\346\263\225", nullptr));
         dengjianju->setText(QCoreApplication::translate("MainWindow", "\347\255\211\351\227\264\350\267\235", nullptr));
         dengwucha->setText(QCoreApplication::translate("MainWindow", "\347\255\211\350\257\257\345\267\256", nullptr));
+        bijinfangfa->setText(QCoreApplication::translate("MainWindow", "Ciallo\357\275\236(\342\210\240\343\203\273\317\211< )\342\214\222\342\230\206", nullptr));
         label_39->setText(QCoreApplication::translate("MainWindow", "\350\257\257\345\267\256\350\256\276\347\275\256", nullptr));
         label_40->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
         label_33->setText(QCoreApplication::translate("MainWindow", "\346\234\200\345\244\247\345\205\201\350\256\270\350\257\257\345\267\256", nullptr));
@@ -907,9 +926,9 @@ public:
         label_34->setText(QCoreApplication::translate("MainWindow", "3121000048 \346\262\210\345\256\266\346\235\255", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "\346\233\262\347\272\277\346\225\260\346\215\256", nullptr));
         label_38->setText(QCoreApplication::translate("MainWindow", "\346\233\262\347\272\277\346\256\265\346\225\260\357\274\232", nullptr));
-        label_37->setText(QCoreApplication::translate("MainWindow", "\346\234\200\345\244\247\350\257\257\345\267\256\357\274\232", nullptr));
         zuidawuchaxianshi->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         quxianduanshuxianshi->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_37->setText(QCoreApplication::translate("MainWindow", "\346\234\200\345\244\247\350\257\257\345\267\256\357\274\232", nullptr));
     } // retranslateUi
 
 };

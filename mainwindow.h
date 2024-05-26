@@ -52,11 +52,16 @@ public:
     float n;
     float xStart;
     float xFinish;
-    bool shengchengyuanlujing;
+    bool shengchengyuanlujing = 0;
+    bool shengchengdaojulujing = 0;
 
 private slots:
     void on_shengchenglujing_clicked();
     void on_horizontalSlider_valueChanged(int value);
+    void on_dengjianju_toggled(bool checked);
+    void on_dengwucha_toggled(bool checked);
+    void on_jinxingfangzhen_clicked();
+    void on_shengchengdaojulujing_clicked();
 
 private:
     Ui::MainWindow *ui;

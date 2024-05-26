@@ -15,27 +15,14 @@ YUXUANPAMXING::~YUXUANPAMXING()
 
 float maxError;
 
-void YUXUANPAMXING::PaintTulun_dengjianju(QPainter *painter)
-{
-    for(int i=0;i<NCX.length()-1;i++){
-        painter->drawLine(NCX[i], -NCY[i], NCX[i+1],-NCY[i+1]);
-    }
-}
+QList<float> NCX; //等间距升程x坐标
+QList<float> NCY; //等间距升程y坐标
 
-void YUXUANPAMXING::PaintTulun_dengwucha(QPainter *painter)
-{
-    for(int i=0;i<NCX2.length()-1;i++){
-        painter->drawLine(NCX2[i], -NCY2[i], NCX2[i+1],-NCY2[i+1]);
-    }
-}
+QList<float> NCX2; //等误差升程x坐标
+QList<float> NCY2; //等误差升程y坐标
 
-void YUXUANPAMXING::PaintTulun_toolcompensate(QPainter *painter)
-{
-    for(int i=0;i<COMX.length()-1;i++)
-    {
-        painter->drawLine(COMX[i], -COMY[i], COMX[i+1],-COMY[i+1]);
-    }
-}
+QList<float> COMX; //刀补X
+QList<float> COMY; //刀补Y
 
 //余弦加减速凸轮等间距插补，计算各节点的x和y坐标，r是基圆，h是升程，o是升角，oo是回程角，step是步进角度，permit——eeror是允许误差，ooo是远休止角度，oooo是近休止角度
 int YUXUANPAMXING::dengchang_zuobiao(float r,float h,float o,float oo,float ooo,float oooo,float permit_eeror,float step)
@@ -236,10 +223,10 @@ int YUXUANPAMXING::dengwucha_zuobiao(float r,float h,float o,float oo,float ooo,
     NCY2.append(0);
     for(float oa =0,oi = oa +0.005;(oa<o)&&(oi<o);oi+=0.005)//升程
     {
-        s=h*(1-cos(pi*oa/o));
+        s=h*(1-cos(pi*oa/o))/2;
         xa=(cos(oa*pi/180)*(r+s));
         ya=(sin(oa*pi/180)*(r+s));
-        s=h*(1-cos(pi*oi/o));
+        s=h*(1-cos(pi*oi/o))/2;
         xi=(cos(oi*pi/180)*(r+s));
         yi=(sin(oi*pi/180)*(r+s));
         k=-1/atan(oi);
@@ -249,7 +236,7 @@ int YUXUANPAMXING::dengwucha_zuobiao(float r,float h,float o,float oo,float ooo,
             ob=oi+(oi-oa);
             if(ob>o)
                 ob=o;//防止越界
-            s=h*(1-cos(pi*ob/o));
+            s=h*(1-cos(pi*ob/o))/2;
             xb=(cos(ob*pi/180)*(r+s));
             yb=(sin(ob*pi/180)*(r+s));
             NCX2.append(xb);
@@ -284,7 +271,7 @@ int YUXUANPAMXING::dengwucha_zuobiao(float r,float h,float o,float oo,float ooo,
         s=h*(1+cos(pi*oa/oo))/2;
         xa=(cos((oa+o+ooo)*pi/180)*(r+s));
         ya=(sin((oa+o+ooo)*pi/180)*(r+s));
-        s=h*(1-cos(pi*oi/oo));
+        s=h*(1+cos(pi*oi/oo))/2;
         xi=(cos((oi+o+ooo)*pi/180)*(r+s));
         yi=(sin((oi+o+ooo)*pi/180)*(r+s));
         k=-1/atan(oi);
@@ -292,8 +279,8 @@ int YUXUANPAMXING::dengwucha_zuobiao(float r,float h,float o,float oo,float ooo,
         if(permit_eeror-b < 10e-4)
         {//满足误差需求
             ob=oi+(oi-oa);
-            if(ob>o)
-                ob=o;//防止越界
+            if(ob>oo)
+                ob=oo;//防止越界
             s=h*(1+cos(pi*ob/oo))/2;
             xb=(cos((ob+o+ooo)*pi/180)*(r+s));
             yb=(sin((ob+o+ooo)*pi/180)*(r+s));
@@ -453,7 +440,7 @@ int YUXUANPAMXING::dengchang_compute_toolcompensateright(float tool)
                 COMY.append(tooly);
         }
     }
-    if(COMY.at(0)>=0&&COMY.at(this->COMX.length()-1)<=0)//判读是否过切
+    if(COMY.at(0)>=0&&COMY.at(COMX.length()-1)<=0)//判读是否过切
     {
         return 1;
     }
@@ -589,7 +576,7 @@ int YUXUANPAMXING::dengwucha_compute_toolcompensateright(float tool)
             COMY.append(tooly);
         }
     }
-    if(COMY.at(0)>=0&&COMY.at(this->COMX.length()-1)<=0)//判断是否过切
+    if(COMY.at(0)>=0&&COMY.at(COMX.length()-1)<=0)//判断是否过切
     {
         return 1;
     }
