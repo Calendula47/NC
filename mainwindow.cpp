@@ -167,10 +167,20 @@ void MainWindow::paint()
 
             if(ui->youdaobu->isChecked())//右刀补
             {
-                MIHANSHUXIAOSHU().compute_toolcompensateright(ui->dengwucha->isChecked(),ui->daojubanjing->value(),ui->mishu->value());
-                for(int j=1;j<changdu_compensate;j++)
+                if(ui->dengjianju->isChecked())//等间距
                 {
-                    toolpainter.drawLine(10*x_toolcompensate[j-1],10*y_toolcompensate[j-1],10*x_toolcompensate[j],10*y_toolcompensate[j]);
+                    for(int j=1;j<changdu_dengchang;j++)
+                    {
+                        toolpainter.drawLine(10*x_dengchangdu[j-1],10*(y_dengchangdu[j-1]-ui->daojubanjing->value()),10*x_dengchangdu[j],10*(y_dengchangdu[j]-ui->daojubanjing->value()));
+                    }
+                }
+
+                if(ui->dengwucha->isChecked())//等误差
+                {
+                    for(int j=1;j<changdu_dengwucha;j++)
+                    {
+                        toolpainter.drawLine(10*x_dengwucha[j-1],10*(y_dengwucha[j-1]-ui->daojubanjing->value()),10*x_dengwucha[j],10*(y_dengwucha[j]-ui->daojubanjing->value()));
+                    }
                 }
             }
         }

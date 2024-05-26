@@ -184,9 +184,7 @@ void MIHANSHUXIAOSHU::compute_toolcompensateright(int chabu_type, double toolrig
     //插补方式为0是等间距逼近刀补，为1是等误差逼近刀补
     if(chabu_type==0)
     {
-        x_toolcompensate[0]=x_dengchangdu[0];
-        y_toolcompensate[0]=y_dengchangdu[0]-toolright;
-        for (int i = 1; i<changdu_dengchang; i++)
+        for (int i = 0; i<changdu_dengchang; i++)
         {
             x_toolcompensate[i] = x_dengchangdu[i] + toolright*cos(atan(1 /(zhishu*pow(x_dengchangdu[i], zhishu - 1))));//每个等间距的x坐标对应的刀补x坐标
             y_toolcompensate[i] = y_dengchangdu[i] - toolright*sin(atan(1 /(zhishu*pow(y_dengchangdu[i], zhishu - 1))));//每个等间距的y坐标对应的刀补y坐标
@@ -195,9 +193,7 @@ void MIHANSHUXIAOSHU::compute_toolcompensateright(int chabu_type, double toolrig
     }
     if(chabu_type==1)
     {
-        x_toolcompensate[0]=x_dengwucha[0];
-        y_toolcompensate[0]=y_dengwucha[0]-toolright;
-        for (int i = 1; i<changdu_dengwucha; i++)
+        for (int i = 0; i<changdu_dengwucha; i++)
         {
             x_toolcompensate[i] = x_dengwucha[i] + toolright*cos(atan(1 / (zhishu*pow(x_dengwucha[i], zhishu - 1))));//每个等误差的x坐标对应的刀补x坐标
             y_toolcompensate[i] = y_dengwucha[i] - toolright*sin(atan(1 / (zhishu*pow(y_dengwucha[i], zhishu - 1))));//每个等误差的y坐标对应的刀补y坐标

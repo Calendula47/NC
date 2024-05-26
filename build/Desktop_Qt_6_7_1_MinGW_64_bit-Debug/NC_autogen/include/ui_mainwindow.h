@@ -421,6 +421,7 @@ public:
         sizePolicy4.setHeightForWidth(paint_widget->sizePolicy().hasHeightForWidth());
         paint_widget->setSizePolicy(sizePolicy4);
         paint_widget->setMinimumSize(QSize(600, 0));
+        paint_widget->setMouseTracking(true);
         paint_widget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
 
         verticalLayout_2->addWidget(paint_widget);
