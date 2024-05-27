@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("数控技术课程设计2024");
+    timer=new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(jiShiQi()));
+
     ui->xuanzequxian->setCurrentIndex(0);
     ui->x_zhongdian->setRange(0,200);
     ui->mishu->setRange(0,1);
@@ -42,29 +45,26 @@ MainWindow::MainWindow(QWidget *parent)
     ui->dengjianju->setChecked(false);
     ui->dengwucha->setChecked(false);
     ui->bijinfangfa->setVisible(false);
+    ui->progressBar->reset();
     ui->quxianduanshuxianshi->setText("未计算，请选择逼近方法");
     ui->zuidawuchaxianshi->setText("未计算，请选择逼近方法");
-
     ui->x_qidian->setValue(0);
     ui->x_zhongdian->setValue(20);
     ui->mishu->setValue(0.8);
-
     ui->jiyuanzhijing->setValue(10);
     ui->shengcheng->setValue(10);
     ui->shengchengjiao->setValue(60);
     ui->huichengjiao->setValue(90);
     ui->jinxiujiao->setValue(110);
     ui->yuanxiujiao->setValue(100);
-
     ui->zhuzhouzhuansu->setValue(24000);
     ui->jinjisudu->setValue(120);
     ui->daojubanjing->setValue(2);
     ui->tuidaogaodu->setValue(10);
     ui->houdu->setValue(3);
-
     ui->gudingwucha->setValue(0.002);
-
     ui->zuidawucha->setValue(0.002);
+    update();
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)//创建绘图窗口及坐标轴
@@ -177,18 +177,34 @@ void MainWindow::paint()//主绘图函数
         compensatepainter.drawRect(0,0,paintWidth,paintHeight);
         compensatepainter.translate((ui->paint_widget->width()/2),(-9+ui->paint_widget->height()/2));
         compensatepainter.scale(paintScale,-paintScale);
-        compensatepainter.setPen(QPen(QColor(255,186,186),0.3));
+        compensatepainter.setPen(QPen(QColor(255,200,200),0.8));
 
         float daojubanjing=ui->daojubanjing->value();
-
+        if(ui->xuanzequxian->currentIndex()==0)//幂函数
+        {
+            for(int i=1;i<time;i+=50)
+            {
+                QPointF circleCenter(10*x_toolcompensate[i],10*y_toolcompensate[i]);
+                compensatepainter.drawEllipse(circleCenter,10*daojubanjing,10*daojubanjing);
+            }
+        }
+        else//凸轮
+        {
+            for(int i=1;i<time;i+=50)
+            {
+                QPointF circleCenter(10*COMX[i],-10*COMY[i]);
+                compensatepainter.drawEllipse(circleCenter,10*daojubanjing,10*daojubanjing);
+            }
+        }
+        update();
     }
-
     update();
 }
 
 void MainWindow::on_shengchenglujing_clicked()//点击生成原曲线
 {
     shengchengdaojulujing=0;
+    kaishifangzhen=0;
     if(ui->dengjianju->isChecked()==0 && ui->dengwucha->isChecked()==0)//因为逼近方法没有改变事件的话下面的段数和最大误差不会更新，所以创建了一个空RadioButton用来保证下面的统计有数值
     {
         QMessageBox::warning(this,"未选择逼近方法","请在“插补参数”中选择逼近方法");
@@ -217,6 +233,7 @@ void MainWindow::on_shengchenglujing_clicked()//点击生成原曲线
 
 void MainWindow::on_shengchengdaojulujing_clicked()//点击生成刀具路径
 {
+    kaishifangzhen=0;
     if(ui->xuanzequxian->currentIndex()==1)//凸轮
     {
         if(ui->dengjianju->isChecked())
@@ -307,6 +324,15 @@ void MainWindow::on_jinxingfangzhen_clicked()//点击开始仿真
             else
             {
                 kaishifangzhen=1;
+                if(ui->xuanzequxian->currentIndex()==0)
+                {
+                    timer->start(10000/ui->jinjisudu->value());
+                }
+                else
+                {
+                    timer->start(10000/ui->jinjisudu->value());
+                }
+                update();
             }
         }
     }
@@ -314,6 +340,7 @@ void MainWindow::on_jinxingfangzhen_clicked()//点击开始仿真
 
 void MainWindow::on_shengchengNC_clicked()//点击生成NC代码
 {
+    kaishifangzhen=0;
     if(ui->tuidaogaodu->value()<ui->houdu->value())
     {
         QMessageBox::warning(this,"参数错误","请保证退刀高度大于工件厚度");
@@ -790,6 +817,7 @@ void MainWindow::on_shengchengNC_clicked()//点击生成NC代码
 
 void MainWindow::on_shengchengNC_2_clicked()//点击保存NC代码
 {
+    kaishifangzhen=0;
     QClipboard *clipboard = QApplication::clipboard();
     QString selectedFileNameFilter;
     QString fileNameFilter="NC文件(*.nc);;LinuxCNC文件(*.ngc);;文本文件(*.txt)";
@@ -821,6 +849,66 @@ void MainWindow::on_shengchengNC_2_clicked()//点击保存NC代码
     file.close();
     clipboard->setText(fileName);
     QMessageBox::information(this,"保存成功","文件成功保存在"+fileName+"\n\n文件路径已复制到剪贴板");
+}
+
+void MainWindow::jiShiQi()//仿真计时函数
+{
+    timer->stop();
+    float currentProgress;
+    if(ui->xuanzequxian->currentIndex()==0 && time<changdu_compensate)//幂函数走刀
+    {
+        if(kaishifangzhen)
+        {
+            time+=50;
+            currentProgress=(time*100)/changdu_compensate;
+            ui->progressBar->setValue(currentProgress);
+        }
+        else
+        {
+            time=0;
+        }
+    }
+
+    if(ui->xuanzequxian->currentIndex()==1 && time<COMX.length())//凸轮走刀
+    {
+        if(kaishifangzhen)
+        {
+            time+=50;
+            currentProgress=(time*100)/COMX.length();
+            ui->progressBar->setValue(currentProgress);
+        }
+        else
+        {
+            time=0;
+        }
+    }
+
+    if(ui->xuanzequxian->currentIndex()==0 && time>=changdu_compensate)//幂函数完成
+    {
+        time=0;
+        QMessageBox::information(this,"加工完成","加工完成");
+        ui->progressBar->setValue(0);
+        return;
+    }
+
+    if(ui->xuanzequxian->currentIndex()==1 && time>=COMX.length())//凸轮完成
+    {
+        time=0;
+        QMessageBox::information(this,"加工完成","加工完成");
+        ui->progressBar->setValue(0);
+        return;
+    }
+
+    update();
+
+    if(ui->xuanzequxian->currentIndex()==0)
+    {
+        timer->start(10000/ui->jinjisudu->value());
+    }
+    else
+    {
+        timer->start(10000/ui->jinjisudu->value());
+    }
 }
 
 void MainWindow::on_dengwucha_toggled(bool checked)//更新最大误差和段数
@@ -869,12 +957,3 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
-
-
-
-
-
-
-

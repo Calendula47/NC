@@ -10,9 +10,6 @@ public:
     explicit MIHANSHUXIAOSHU(QWidget *parent = 0);
 
     double mihanshu(double x,double y);
-    void PaintMihanshuxiaoshu_dengjianju(QPainter *painter);
-    void PaintMihanshuxiaoshu_dengwucha(QPainter *painter);
-    void Paintmihanshu_toolcompensate(QPainter *painter);
     double bijinwucha(double x0,double x1, double zhishu);
     double dengchang_zuobiao(double a, double b, double exponent, double max_error);
     double dengwucha_zuobiao(double a, double b, double zhishu,double deng_error);

@@ -81,6 +81,7 @@ public:
     QLabel *label_6;
     QDoubleSpinBox *x_qidian;
     QLabel *label_3;
+    QLabel *label_66;
     QWidget *tab_2;
     QGridLayout *gridLayout_3;
     QSpacerItem *horizontalSpacer_2;
@@ -379,64 +380,81 @@ public:
         gridLayout_2->setObjectName("gridLayout_2");
         label = new QLabel(tab);
         label->setObjectName("label");
-        sizePolicy2.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy1);
+        label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+        gridLayout_2->addWidget(label, 1, 0, 1, 1);
 
         label_4 = new QLabel(tab);
         label_4->setObjectName("label_4");
-        sizePolicy2.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
-        label_4->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
+        label_4->setSizePolicy(sizePolicy1);
+        label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
+        gridLayout_2->addWidget(label_4, 2, 0, 1, 1);
 
         x_zhongdian = new QDoubleSpinBox(tab);
         x_zhongdian->setObjectName("x_zhongdian");
         x_zhongdian->setMinimumSize(QSize(0, 30));
 
-        gridLayout_2->addWidget(x_zhongdian, 1, 1, 1, 1);
+        gridLayout_2->addWidget(x_zhongdian, 2, 1, 1, 1);
 
         label_5 = new QLabel(tab);
         label_5->setObjectName("label_5");
-        sizePolicy1.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
-        label_5->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
+        label_5->setSizePolicy(sizePolicy2);
         label_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout_2->addWidget(label_5, 2, 0, 1, 1);
+        gridLayout_2->addWidget(label_5, 3, 0, 1, 1);
 
         mishu = new QDoubleSpinBox(tab);
         mishu->setObjectName("mishu");
         mishu->setMinimumSize(QSize(0, 30));
 
-        gridLayout_2->addWidget(mishu, 2, 1, 1, 1);
+        gridLayout_2->addWidget(mishu, 3, 1, 1, 1);
 
         label_2 = new QLabel(tab);
         label_2->setObjectName("label_2");
         sizePolicy2.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
         label_2->setSizePolicy(sizePolicy2);
 
-        gridLayout_2->addWidget(label_2, 0, 2, 1, 1);
+        gridLayout_2->addWidget(label_2, 1, 2, 1, 1);
 
         label_6 = new QLabel(tab);
         label_6->setObjectName("label_6");
         sizePolicy2.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
         label_6->setSizePolicy(sizePolicy2);
 
-        gridLayout_2->addWidget(label_6, 2, 2, 1, 1);
+        gridLayout_2->addWidget(label_6, 3, 2, 1, 1);
 
         x_qidian = new QDoubleSpinBox(tab);
         x_qidian->setObjectName("x_qidian");
         x_qidian->setMinimumSize(QSize(0, 30));
 
-        gridLayout_2->addWidget(x_qidian, 0, 1, 1, 1);
+        gridLayout_2->addWidget(x_qidian, 1, 1, 1, 1);
 
         label_3 = new QLabel(tab);
         label_3->setObjectName("label_3");
         sizePolicy2.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
         label_3->setSizePolicy(sizePolicy2);
 
-        gridLayout_2->addWidget(label_3, 1, 2, 1, 1);
+        gridLayout_2->addWidget(label_3, 2, 2, 1, 1);
+
+        label_66 = new QLabel(tab);
+        label_66->setObjectName("label_66");
+        QSizePolicy sizePolicy3(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(label_66->sizePolicy().hasHeightForWidth());
+        label_66->setSizePolicy(sizePolicy3);
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Sarasa Fixed SC Semibold")});
+        font.setPointSize(20);
+        label_66->setFont(font);
+        label_66->setAlignment(Qt::AlignCenter);
+
+        gridLayout_2->addWidget(label_66, 0, 0, 1, 3);
 
         xuanzequxian->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -496,9 +514,6 @@ public:
 
         shengcheng = new QDoubleSpinBox(tab_2);
         shengcheng->setObjectName("shengcheng");
-        QSizePolicy sizePolicy3(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(shengcheng->sizePolicy().hasHeightForWidth());
         shengcheng->setSizePolicy(sizePolicy3);
         shengcheng->setMinimumSize(QSize(0, 30));
@@ -618,11 +633,11 @@ public:
         label_26->setObjectName("label_26");
         sizePolicy2.setHeightForWidth(label_26->sizePolicy().hasHeightForWidth());
         label_26->setSizePolicy(sizePolicy2);
-        QFont font;
-        font.setFamilies({QString::fromUtf8("Source Han Serif Heavy")});
-        font.setPointSize(14);
-        font.setBold(true);
-        label_26->setFont(font);
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("Source Han Serif Heavy")});
+        font1.setPointSize(14);
+        font1.setBold(true);
+        label_26->setFont(font1);
 
         horizontalLayout_7->addWidget(label_26);
 
@@ -630,7 +645,7 @@ public:
         label_27->setObjectName("label_27");
         sizePolicy2.setHeightForWidth(label_27->sizePolicy().hasHeightForWidth());
         label_27->setSizePolicy(sizePolicy2);
-        label_27->setFont(font);
+        label_27->setFont(font1);
 
         horizontalLayout_7->addWidget(label_27);
 
@@ -638,7 +653,7 @@ public:
         label_34->setObjectName("label_34");
         sizePolicy2.setHeightForWidth(label_34->sizePolicy().hasHeightForWidth());
         label_34->setSizePolicy(sizePolicy2);
-        label_34->setFont(font);
+        label_34->setFont(font1);
 
         horizontalLayout_7->addWidget(label_34);
 
@@ -890,9 +905,9 @@ public:
         sizePolicy4.setHeightForWidth(paint_widget->sizePolicy().hasHeightForWidth());
         paint_widget->setSizePolicy(sizePolicy4);
         paint_widget->setMinimumSize(QSize(600, 0));
-        QFont font1;
-        font1.setPointSize(9);
-        paint_widget->setFont(font1);
+        QFont font2;
+        font2.setPointSize(9);
+        paint_widget->setFont(font2);
         paint_widget->setMouseTracking(true);
         paint_widget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
 
@@ -939,7 +954,7 @@ public:
 
         progressBar = new QProgressBar(widget);
         progressBar->setObjectName("progressBar");
-        progressBar->setValue(24);
+        progressBar->setValue(36);
 
         horizontalLayout_13->addWidget(progressBar);
 
@@ -1051,10 +1066,11 @@ public:
         groupBox_3->setTitle(QCoreApplication::translate("MainWindow", "\350\267\257\345\276\204\345\217\202\346\225\260", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "X \350\265\267\347\202\271", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "X \347\273\210\347\202\271", nullptr));
-        label_5->setText(QCoreApplication::translate("MainWindow", "n =", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "\345\271\202\346\225\260 n =", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "( 0 < n < 1 )", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
+        label_66->setText(QCoreApplication::translate("MainWindow", "\345\271\202\345\207\275\346\225\260\345\205\254\345\274\217\357\274\232f(x)=x\342\201\277", nullptr));
         xuanzequxian->setTabText(xuanzequxian->indexOf(tab), QCoreApplication::translate("MainWindow", "\345\271\202\345\207\275\346\225\260\346\233\262\347\272\277", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "\302\260", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "\345\233\236\347\250\213\350\247\222", nullptr));

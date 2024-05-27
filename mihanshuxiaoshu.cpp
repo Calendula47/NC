@@ -30,36 +30,6 @@ std::vector<double> changdu_y_nodes;
 std::vector<double> dengwucha_x_nodes;
 std::vector<double> dengwucha_y_nodes;
 
-//调用等间距逼近算法来进行绘图
-void MIHANSHUXIAOSHU::PaintMihanshuxiaoshu_dengjianju(QPainter *painter)
-{
-
-  for(int j=1;j<changdu_dengchang;j++)
-    {
-        painter->drawLine(x_dengchangdu[j-1],y_dengchangdu[j-1],x_dengchangdu[j],y_dengchangdu[j]);
-      if(j%1000==0){qDebug()<<"paint"<<j<<x_dengchangdu[j]<<y_dengchangdu[j];}
-    }
-
-}
-
-//调用等误差逼近算法来进行绘图
-void MIHANSHUXIAOSHU::PaintMihanshuxiaoshu_dengwucha(QPainter *painter)
-{
-    for(int j=1;j<changdu_dengwucha;j++)
-    {
-        painter->drawLine(x_dengwucha[j-1],y_dengwucha[j-1],x_dengwucha[j],y_dengwucha[j]);
-    }
-}
-
-//刀补绘制
-void MIHANSHUXIAOSHU::Paintmihanshu_toolcompensate(QPainter *painter)
-{
-    for(int j=1;j<changdu_compensate;j++)
-    {
-        painter->drawLine(x_toolcompensate[j-1],y_toolcompensate[j-1],x_toolcompensate[j],y_toolcompensate[j]);
-    }
-}
-
 //定义幂函数
 double MIHANSHUXIAOSHU::mihanshu(double x, double zhishu) {
     return pow(x, zhishu);

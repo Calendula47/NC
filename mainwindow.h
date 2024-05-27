@@ -42,7 +42,7 @@ public:
     QImage image;
     YUXUANPAMXING cam;
     QPoint paintposition;
-    QTimer *timer1;
+    QTimer *timer;
 
     int paintX;
     int paintY;
@@ -56,6 +56,8 @@ public:
     float xFinish;
     bool shengchengyuanlujing = 0;
     bool shengchengdaojulujing = 0;
+    bool kaishifangzhen;
+    long time = 0;
 
 private slots:
     void on_shengchenglujing_clicked();
@@ -64,12 +66,10 @@ private slots:
     void on_dengwucha_toggled(bool checked);
     void on_jinxingfangzhen_clicked();
     void on_shengchengdaojulujing_clicked();
-
     void on_shengchengNC_clicked();
-
     void on_shengchengNC_2_clicked();
-
     void on_xuanzequxian_currentChanged(int index);
+    void jiShiQi();
 
 private:
     Ui::MainWindow *ui;
