@@ -63,6 +63,8 @@ private slots:
     void on_jinxingfangzhen_clicked();
     void on_shengchengdaojulujing_clicked();
 
+    void on_shengchengNC_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

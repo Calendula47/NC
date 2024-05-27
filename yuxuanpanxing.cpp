@@ -319,59 +319,30 @@ int YUXUANPAMXING::dengwucha_zuobiao(float r,float h,float o,float oo,float ooo,
 /*凸轮等间距左刀补 将点集存储到COMXCOMY中输入参数:tool刀具半径;返回值:1没有过切-1产生过切*/
 int YUXUANPAMXING:: dengchang_compute_toolcompensateleft(float tool)
 {
-    float k1;
     float k2;
-    float xr1;
-    float yr1;
     float xr2;
     float yr2;
     float toolx;
     float tooly;
-    float k;
-    float b;
-    float u1;
-    float v1;
-    float u2;
-    float v2;
-    int cmd;
     COMX.clear();
     COMY.clear();
     for(int i=1;i<NCX.length()-1;i++)
     {
-        u1=NCX[i]-NCX[i-1];
-        v1=NCY[i]-NCY[i-1];
-        u2=NCX[i+1]-NCX[i];
-        v2=NCY[i+1]-NCY[i];
-        if((u1*v2-v1*u2)<=0)
-        {//<180
-            cmd=1;
-        }
-        else if((u1*v2-v1*u2)>0&&(u1*u2+v1*v2)>=0)
-        {//180-270
-            cmd=2;
-        }
-        else
-        {//270-360
-            cmd = 3;
-        }
-        k1=((NCY[i]-NCY[i-1])/(NCX[i]-NCX[i-1]));//0A段
-        k2=((NCY[i+1]-NCY[i])/(NCX[i+1]-NCX[i]));//AB段
-        xr1=cos(atan(-1/k1))*tool;
-        yr1=sin(atan(-1/k1))*tool;
+        k2=((NCY[i+1]-NCY[i])/(NCX[i+1]-NCX[i]));
+
         xr2=-cos(atan(-1/k2))*tool;
         yr2=-sin(atan(-1/k2))*tool;
-        if(cmd==1)
+        toolx=NCX[i]+xr2;
+        tooly=NCY[i]+yr2;
+
+        if((NCX[i]*NCX[i]+NCY[i]*NCY[i])<(toolx*toolx+tooly*tooly))//防止越界
         {
-            toolx=NCX[i]+xr2;
-            tooly=NCY[i]+yr2;
-            if((NCX[i]*NCX[i]+NCY[i]*NCY[i])<(toolx*toolx+tooly*tooly))//防止点越界
-            {
-                toolx=NCX[i]-xr2;
-                tooly=NCY[i]-yr2;
-            }
-            COMX.append(toolx);
-            COMY.append(tooly);
+            toolx=NCX[i]-xr2;
+            tooly=NCY[i]-yr2;
         }
+
+        COMX.append(toolx);
+        COMY.append(tooly);
     }
     for(int j=5;j<COMX.length();j++)
     {
@@ -380,7 +351,7 @@ int YUXUANPAMXING:: dengchang_compute_toolcompensateleft(float tool)
             return -1;
         }
     }
-     return 1;
+    return 1;
 }
 
 /*凸轮等间距右刀补 将点集存储到COMXCOMY中输入参数:tool刀具半径返回值:1没有过切-1产生过切*/
@@ -394,51 +365,33 @@ int YUXUANPAMXING::dengchang_compute_toolcompensateright(float tool)
     float yr2;
     float toolx;
     float tooly;
-    float k;
-    float b;
-    float u1;
-    float v1;
-    float u2;
-    float v2;
-    int cmd;
     COMX.clear();
     COMY.clear();
     for(int i=1;i<NCX.length()-1;i++)
     {
-        u1=NCX[i]-NCX[i-1];
-        v1=NCY[i]-NCY[i-1];
-        u2=NCX[i+1]-NCX[i];
-        v2=NCY[i+1]-NCY[i];
-        if((u1*v2-v1*u2)<=0){
-            //<180
-            cmd=1;
-        }
-        else if((u1*v2-v1*u2)>0&&(u1*u2+v1*v2)>=0)
-        {//180-270
-            cmd=2;
-        }
-        else
-        {//270-360
-            cmd=3;
-        }
         k1=((NCY[i]-NCY[i-1])/(NCX[i]-NCX[i-1]));//0A段
         k2=((NCY[i+1]-NCY[i])/(NCX[i+1]-NCX[i]));//AB段
         xr1=cos(atan(-1/k1))*tool;
         yr1=sin(atan(-1/k1))*tool;
         xr2=cos(atan(-1/k2))*tool;
         yr2=sin(atan(-1/k2))*tool;
-        if(cmd==2)
+
+        toolx=NCX[i]+xr1+xr2;
+        tooly=NCY[i]+yr1+yr2;
+
+        if((NCX[i]*NCX[i]+NCY[i]*NCY[i])>(toolx*toolx+tooly*tooly))//防止越界
         {
-            toolx=NCX2[i]+xr2;
-            tooly=NCY2[i]+yr2;
-            if((NCX2[i]*NCX2[i]+NCY2[i]*NCY2[i])>(toolx*toolx+tooly*tooly))//防止越界
-            {
-                toolx=NCX2[i]-xr2;
-                tooly=NCY2[i]-yr2;
-            }
-                COMX.append(toolx);
-                COMY.append(tooly);
+            toolx=NCX[i]-xr2;
+            tooly=NCY[i]-yr2;
         }
+        else
+        {
+            toolx=NCX[i]+xr2;
+            tooly=NCY[i]+yr2;
+        }
+
+        COMX.append(toolx);
+        COMY.append(tooly);
     }
     if(COMY.at(0)>=0&&COMY.at(COMX.length()-1)<=0)//判读是否过切
     {
@@ -453,60 +406,28 @@ int YUXUANPAMXING::dengchang_compute_toolcompensateright(float tool)
 /*凸轮等误差左刀补 将点集存储到COMXCOMY中输入参数:tool刀具半径返回值:1没有过切 -1产生过切*/
 int YUXUANPAMXING::dengwucha_compute_toolcompensateleft(float tool)
 {
-    float k1;
     float k2;
-    float xr1;
-    float yr1;
     float xr2;
     float yr2;
     float toolx;
     float tooly;
-    float k;
-    float b;
-    float u1;
-    float v1;
-    float u2;
-    float v2;
-    int cmd;//矢量夹角
     COMX.clear();
     COMY.clear();
     for(int i=1;i<NCX2.length()-1;i++)
     {
-        //计算矢量夹角的大小
-        u1=NCX2[i]-NCX2[i-1];
-        v1=NCY2[i]-NCY2[i-1];
-        u1=NCX2[i+1]-NCX2[i];
-        v2=NCY2[i+1]-NCY2[i];
-        if((u1*v2-v1*u2)<=0)
-        {//矢量夹角<180
-            cmd=1;
-        }
-        else if((u1*v2-v1*u2)>0&&(u1*u2+v1*v2)>=0)
-        {//矢量夹角：180-270
-            cmd=2;
-        }
-        else
-        {//矢量夹角：270-360
-            cmd=3;
-        }
-        k1=((NCY2[i]-NCY2[i-1])/(NCX2[i]-NCX2[i-1]));//0A段
-        k2=((NCY2[i+1]-NCY2[i])/(NCX2[i+1]-NCX2[i]));//AB段
-        xr1=cos(atan(-1/k1))*tool;
-        yr1=sin(atan(-1/k1))*tool;
+        k2=((NCY2[i+1]-NCY2[i])/(NCX2[i+1]-NCX2[i]));
+
         xr2=-cos(atan(-1/k2))*tool;
         yr2=-sin(atan(-1/k2))*tool;
-        if(cmd==1)
+        toolx=NCX2[i]+xr2;
+        tooly=NCY2[i]+yr2;
+        if((NCX2[i]*NCX2[i]+NCY2[i]*NCY2[i])<(toolx*toolx+tooly*tooly))//防止越界
         {
-            toolx=NCX2[i]+xr2;
-            tooly=NCY2[i]+yr2;
-            if((NCX2[i]*NCX2[i]+NCY2[i]*NCY2[i])<(toolx*toolx+tooly*tooly))//防止点越界
-            {
-                toolx=NCX2[i]-xr2;
-                tooly=NCY2[i]-yr2;
-            }
-            COMX.append(toolx);
-            COMY.append(tooly);
+            toolx=NCX2[i]-xr2;
+            tooly=NCY2[i]-yr2;
         }
+        COMX.append(toolx);
+        COMY.append(tooly);
     }
     for(int j=5;j<COMX.length();j++)
      {
@@ -529,52 +450,33 @@ int YUXUANPAMXING::dengwucha_compute_toolcompensateright(float tool)
     float yr2;
     float toolx;
     float tooly;
-    float k;
-    float b;
-    float u1;
-    float v1;
-    float u2;
-    float v2;
-    int cmd;//矢量夹角
     COMX.clear();
     COMY.clear();
     for(int i=1;i<NCX2.length()-1;i++)
-    {
-        //计算矢量夹角的大小
-        u1=NCX2[i]-NCX2[i-1];
-        v1=NCY2[i]-NCY2[i-1];
-        u1=NCX2[i+1]-NCX2[i];
-        v2=NCY2[i+1]-NCY2[i];
-        if((u1*v2-v1*u2)<=0)
-        {//矢量夹角<180
-            cmd=1;
-        }
-        else if((u1*v2-v1*u2)>0&&(u1*u2+v1*v2)>=0)
-        {//矢量夹角：180-270
-            cmd=2;
-        }
-        else
-        {//矢量夹角：270-360
-            cmd=3;
-        }
+    {        
         k1=((NCY2[i]-NCY2[i-1])/(NCX2[i]-NCX2[i-1]));//0A段
         k2=((NCY2[i+1]-NCY2[i])/(NCX2[i+1]-NCX2[i]));//AB段
         xr1=cos(atan(-1/k1))*tool;
         yr1=sin(atan(-1/k1))*tool;
-        xr2=-cos(atan(-1/k2))*tool;
-        yr2=-sin(atan(-1/k2))*tool;
-        if(cmd==1)
+        xr2=cos(atan(-1/k2))*tool;
+        yr2=sin(atan(-1/k2))*tool;
+
+        toolx=NCX2[i]+xr1+xr2;
+        tooly=NCY2[i]+yr1+yr2;
+
+        if((NCX2[i]*NCX2[i]+NCY2[i]*NCY2[i])<(toolx*toolx+tooly*tooly))//防止越界
         {
             toolx=NCX2[i]+xr2;
             tooly=NCY2[i]+yr2;
-            if((NCX2[i]*NCX2[i]+NCY2[i]*NCY2[i])<(toolx*toolx+tooly*tooly))//防止点越界
-            {
-                toolx=NCX2[i]-xr2;
-                tooly=NCY2[i]-yr2;
-            }
-            COMX.append(toolx);
-            COMY.append(tooly);
         }
+        else
+        {
+            toolx=NCX2[i]-xr2;
+            tooly=NCY2[i]-yr2;
+        }
+
+        COMX.append(toolx);
+        COMY.append(tooly);
     }
     if(COMY.at(0)>=0&&COMY.at(COMX.length()-1)<=0)//判断是否过切
     {
