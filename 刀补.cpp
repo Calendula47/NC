@@ -92,7 +92,7 @@ void Widget::createCodeAbs(){
 	str = "N" + QString::number(rowNum / 1000) + QString::number((rowNum % 1000)/ 100) + QString::number((rowNum % 100) / 10) + QString::number((rowNum % 10) %10);
 	str.append(" G01");
 	str.append(" Z-");
-	str.append(QString::number(d + 0.5));//厚度
+    str.append(QString::number(d + 0.5));//厚度
 	ui->textEditCode->append(str);
 	//中间代码
 	if (choose == 1)
@@ -167,7 +167,6 @@ void Widget::createCodes(){
 	int z = ui->lineEditZ->text().toInt();//刀具原点z坐标
 	int s = ui->lineEditS->text().toInt();//转速
 	int f = ui->movespeed->text().toInt();//进给速度
-	float d = ui->lineEditD->text().toFloat();//刀具半径
 	int choose;//判断曲线类型
 	int way;//1为等间距2为等误差
 	float relx = 0;
@@ -221,7 +220,8 @@ void Widget::createCodes(){
 	{
 		str.append(" G42");
 	}
-	if (choose == 1)
+
+    if (choose == 1)//qidian
 	{ //
 	if (way == 1)
 	{
@@ -251,63 +251,68 @@ void Widget::createCodes(){
 	}
 	str.append(" D01");
 	ui->textEditCode->append(str);
-	rowNum++;// CNC
+
+    rowNum++;// xiadao
 	str = "N" + QString::number(rowNum / 1000) + QString::number((rowNum % 1000)/ 100) + QString::number((rowNum % 100) / 10) + QString::number((rowNum % 10) %10);
 	str.append(" G01");
 	str.append(" Z-");
 	str.append(QString::number(z + d + 0.5));
 	ui->textEditCode->append(str);
+
 	if (choose == 1)
-	{//
-	if (way == 1)
-	{
-	for (int i = 1; i<cam.NCX.length() - 0; i++){
-	rowNum++;
-	str = "N" + QString::number(rowNum / 1000) +QString::number((rowNum % 1000) / 100) + QString::number((rowNum % 100) / 10) +QString::number((rowNum % 10) % 10);
-	relx = fabs(cam.NCX[i] - cam.NCX[i - 1]);//相对坐标x
-	rely = fabs(cam.NCY[i] - cam.NCY[i - 1]);//相对坐标y
-	if (relx<0.000001)//四舍五入
-	relx = 0.000001;
-	else
-	 relx = round(relx * pow(10, 6)) * pow(10, -6);
-	if (rely<0.000001)
-	rely = 0.000001;
-	else
-	 rely = round(rely * pow(10, 6)) * pow(10, -6);
-	str.append(" X");
-	if (cam.NCX[i]<cam.NCX[i - 1])//判断正负
-	str.append("-");
-	str.append(QString("%1").arg(relx, 0, 'q', 6));
-	str.append(" Y");
-	if (cam.NCY[i]<cam.NCY[i - 1])//判断正负
-	str.append("-");
-	str.append(QString("%1").arg(rely, 0, 'q', 6));
-	ui->textEditCode->append(str);
-	}
-	}
-	else{
-	for (int i = 1; i<cam.NCX2.length() - 0; i++){
-	rowNum++;
-	str = "N" + QString::number(rowNum / 1000) +QString::number((rowNum % 1000) / 100) + QString::number((rowNum % 100) / 10) +QString::number((rowNum % 10) % 10);
-	relx = fabs(cam.NCX2[i] - cam.NCX2[i - 1]);//相对坐标x
-	rely = fabs(cam.NCY2[i] - cam.NCY2[i - 1]);//相对坐标y
-	if (relx<0.000001)//四舍五入
-	relx = 0.000001;
-	else 
-	relx = round(relx * pow(10, 6)) * pow(10, -6);
-	if (rely<0.000001)
-	rely = 0.000001;
-	else 
-	rely = round(rely * pow(10, 6)) * pow(10, -6);
-	str.append(" X");
-	if (cam.NCX2[i]<cam.NCX2[i - 1])str.append("-");
-	str.append(QString("%1").arg(relx, 0, 'q', 6));
-	str.append(" Y");
-	if (cam.NCY2[i]<cam.NCY2[i - 1])str.append("-");
-	str.append(QString("%1").arg(rely, 0, 'q', 6));
-	ui->textEditCode->append(str);
-	}
-	}
+    {//zhognjain
+        if (way == 1)
+        {
+            for (int i = 1; i<cam.NCX.length() - 0; i++){
+            rowNum++;
+            str = "N" + QString::number(rowNum / 1000) +QString::number((rowNum % 1000) / 100) + QString::number((rowNum % 100) / 10) +QString::number((rowNum % 10) % 10);
+            relx = fabs(cam.NCX[i] - cam.NCX[i - 1]);//相对坐标x
+            rely = fabs(cam.NCY[i] - cam.NCY[i - 1]);//相对坐标y
+
+            if (relx<0.000001)//四舍五入
+                relx = 0.000001;
+            else
+                relx = round(relx * pow(10, 6)) * pow(10, -6);
+            if (rely<0.000001)
+                rely = 0.000001;
+            else
+                rely = round(rely * pow(10, 6)) * pow(10, -6);
+
+            str.append(" X");
+            if (cam.NCX[i]<cam.NCX[i - 1])//判断正负
+                str.append("-");
+            str.append(QString("%1").arg(relx, 0, 'q', 6));
+            str.append(" Y");
+            if (cam.NCY[i]<cam.NCY[i - 1])//判断正负
+                str.append("-");
+            str.append(QString("%1").arg(rely, 0, 'q', 6));
+
+            ui->textEditCode->append(str);
+            }
+        }
+        else{
+        for (int i = 1; i<cam.NCX2.length() - 0; i++){
+        rowNum++;
+        str = "N" + QString::number(rowNum / 1000) +QString::number((rowNum % 1000) / 100) + QString::number((rowNum % 100) / 10) +QString::number((rowNum % 10) % 10);
+        relx = fabs(cam.NCX2[i] - cam.NCX2[i - 1]);//相对坐标x
+        rely = fabs(cam.NCY2[i] - cam.NCY2[i - 1]);//相对坐标y
+        if (relx<0.000001)//四舍五入
+        relx = 0.000001;
+        else
+        relx = round(relx * pow(10, 6)) * pow(10, -6);
+        if (rely<0.000001)
+        rely = 0.000001;
+        else
+        rely = round(rely * pow(10, 6)) * pow(10, -6);
+        str.append(" X");
+        if (cam.NCX2[i]<cam.NCX2[i - 1])str.append("-");
+        str.append(QString("%1").arg(relx, 0, 'q', 6));
+        str.append(" Y");
+        if (cam.NCY2[i]<cam.NCY2[i - 1])str.append("-");
+        str.append(QString("%1").arg(rely, 0, 'q', 6));
+        ui->textEditCode->append(str);
+        }
+        }
 	}	
 	//结束代码cnc
 	rowNum++;

@@ -18,6 +18,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
@@ -35,50 +37,8 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QGroupBox *groupBox;
-    QGridLayout *gridLayout_4;
-    QLabel *label_23;
-    QLabel *label_24;
-    QLabel *label_21;
-    QDoubleSpinBox *tuidaogaodu;
-    QLabel *label_48;
-    QSpinBox *jinjisudu;
-    QGroupBox *groupBox_6;
-    QGridLayout *gridLayout_7;
-    QLabel *label_42;
-    QDoubleSpinBox *daojuY;
-    QDoubleSpinBox *daojuX;
-    QLabel *label_43;
-    QDoubleSpinBox *daojuZ;
-    QLabel *label_41;
-    QLabel *label_44;
-    QLabel *label_45;
-    QLabel *label_46;
-    QWidget *widget_4;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label_25;
-    QRadioButton *jueduizuobiao;
-    QRadioButton *xiangduizuobiao;
-    QSpinBox *zhuzhouzhuansu;
-    QLabel *label_11;
-    QWidget *widget_9;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *label_36;
-    QRadioButton *zhuzhoushun;
-    QRadioButton *zhuzhouni;
-    QDoubleSpinBox *houdu;
-    QLabel *label_47;
-    QLabel *label_22;
-    QLabel *label_12;
-    QSpacerItem *verticalSpacer_2;
-    QGroupBox *groupBox_5;
-    QGridLayout *gridLayout_5;
-    QLabel *label_38;
-    QLabel *zuidawuchaxianshi;
-    QLabel *quxianduanshuxianshi;
-    QLabel *label_37;
-    QWidget *widget;
-    QVBoxLayout *verticalLayout;
+    QWidget *widget_12;
+    QGridLayout *gridLayout_10;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_3;
     QWidget *widget_5;
@@ -143,12 +103,52 @@ public:
     QSpacerItem *horizontalSpacer;
     QLabel *label_13;
     QLabel *label_7;
-    QSpacerItem *verticalSpacer;
+    QGroupBox *groupBox_5;
+    QGridLayout *gridLayout_5;
+    QLabel *label_38;
+    QLabel *zuidawuchaxianshi;
+    QLabel *quxianduanshuxianshi;
+    QLabel *label_37;
     QGroupBox *groupBox_4;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_26;
     QLabel *label_27;
     QLabel *label_34;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout_4;
+    QLabel *label_23;
+    QLabel *label_24;
+    QLabel *label_21;
+    QDoubleSpinBox *tuidaogaodu;
+    QLabel *label_48;
+    QSpinBox *jinjisudu;
+    QGroupBox *groupBox_6;
+    QGridLayout *gridLayout_7;
+    QLabel *label_42;
+    QDoubleSpinBox *daojuY;
+    QDoubleSpinBox *daojuX;
+    QLabel *label_43;
+    QDoubleSpinBox *daojuZ;
+    QLabel *label_41;
+    QLabel *label_44;
+    QLabel *label_45;
+    QLabel *label_46;
+    QWidget *widget_4;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_25;
+    QRadioButton *jueduizuobiao;
+    QRadioButton *xiangduizuobiao;
+    QSpinBox *zhuzhouzhuansu;
+    QLabel *label_11;
+    QWidget *widget_9;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label_36;
+    QRadioButton *zhuzhoushun;
+    QRadioButton *zhuzhouni;
+    QDoubleSpinBox *houdu;
+    QLabel *label_47;
+    QLabel *label_22;
+    QLabel *label_12;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout_2;
     QWidget *paint_widget;
@@ -156,12 +156,20 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_35;
     QSlider *horizontalSlider;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_13;
+    QLabel *label_65;
+    QProgressBar *progressBar;
     QWidget *widget_3;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *shengchenglujing;
     QPushButton *shengchengdaojulujing;
     QPushButton *jinxingfangzhen;
+    QGroupBox *groupBox_7;
+    QGridLayout *gridLayout_11;
     QPushButton *shengchengNC;
+    QPlainTextEdit *gCode;
+    QPushButton *shengchengNC_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -169,7 +177,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1252, 768);
+        MainWindow->resize(1276, 818);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -179,11 +187,466 @@ public:
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
-        groupBox = new QGroupBox(centralwidget);
-        groupBox->setObjectName("groupBox");
+        widget_12 = new QWidget(centralwidget);
+        widget_12->setObjectName("widget_12");
+        gridLayout_10 = new QGridLayout(widget_12);
+        gridLayout_10->setObjectName("gridLayout_10");
+        gridLayout_10->setContentsMargins(0, 0, 0, 0);
+        groupBox_2 = new QGroupBox(widget_12);
+        groupBox_2->setObjectName("groupBox_2");
         QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
+        groupBox_2->setSizePolicy(sizePolicy1);
+        verticalLayout_3 = new QVBoxLayout(groupBox_2);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        widget_5 = new QWidget(groupBox_2);
+        widget_5->setObjectName("widget_5");
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(widget_5->sizePolicy().hasHeightForWidth());
+        widget_5->setSizePolicy(sizePolicy2);
+        horizontalLayout_3 = new QHBoxLayout(widget_5);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        label_28 = new QLabel(widget_5);
+        label_28->setObjectName("label_28");
+        sizePolicy2.setHeightForWidth(label_28->sizePolicy().hasHeightForWidth());
+        label_28->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_3->addWidget(label_28);
+
+        zuodaobu = new QRadioButton(widget_5);
+        zuodaobu->setObjectName("zuodaobu");
+        sizePolicy.setHeightForWidth(zuodaobu->sizePolicy().hasHeightForWidth());
+        zuodaobu->setSizePolicy(sizePolicy);
+        zuodaobu->setChecked(true);
+
+        horizontalLayout_3->addWidget(zuodaobu);
+
+        youdaobu = new QRadioButton(widget_5);
+        youdaobu->setObjectName("youdaobu");
+        sizePolicy.setHeightForWidth(youdaobu->sizePolicy().hasHeightForWidth());
+        youdaobu->setSizePolicy(sizePolicy);
+
+        horizontalLayout_3->addWidget(youdaobu);
+
+
+        verticalLayout_3->addWidget(widget_5);
+
+        widget_7 = new QWidget(groupBox_2);
+        widget_7->setObjectName("widget_7");
+        horizontalLayout_5 = new QHBoxLayout(widget_7);
+        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        label_31 = new QLabel(widget_7);
+        label_31->setObjectName("label_31");
+        sizePolicy2.setHeightForWidth(label_31->sizePolicy().hasHeightForWidth());
+        label_31->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_5->addWidget(label_31);
+
+        daojubanjing = new QDoubleSpinBox(widget_7);
+        daojubanjing->setObjectName("daojubanjing");
+        daojubanjing->setMinimumSize(QSize(0, 30));
+
+        horizontalLayout_5->addWidget(daojubanjing);
+
+        label_30 = new QLabel(widget_7);
+        label_30->setObjectName("label_30");
+        sizePolicy2.setHeightForWidth(label_30->sizePolicy().hasHeightForWidth());
+        label_30->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_5->addWidget(label_30);
+
+
+        verticalLayout_3->addWidget(widget_7);
+
+        widget_6 = new QWidget(groupBox_2);
+        widget_6->setObjectName("widget_6");
+        sizePolicy2.setHeightForWidth(widget_6->sizePolicy().hasHeightForWidth());
+        widget_6->setSizePolicy(sizePolicy2);
+        horizontalLayout_4 = new QHBoxLayout(widget_6);
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label_29 = new QLabel(widget_6);
+        label_29->setObjectName("label_29");
+        sizePolicy2.setHeightForWidth(label_29->sizePolicy().hasHeightForWidth());
+        label_29->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_4->addWidget(label_29);
+
+        dengjianju = new QRadioButton(widget_6);
+        dengjianju->setObjectName("dengjianju");
+        sizePolicy.setHeightForWidth(dengjianju->sizePolicy().hasHeightForWidth());
+        dengjianju->setSizePolicy(sizePolicy);
+        dengjianju->setChecked(false);
+
+        horizontalLayout_4->addWidget(dengjianju);
+
+        dengwucha = new QRadioButton(widget_6);
+        dengwucha->setObjectName("dengwucha");
+        sizePolicy.setHeightForWidth(dengwucha->sizePolicy().hasHeightForWidth());
+        dengwucha->setSizePolicy(sizePolicy);
+
+        horizontalLayout_4->addWidget(dengwucha);
+
+        bijinfangfa = new QRadioButton(widget_6);
+        bijinfangfa->setObjectName("bijinfangfa");
+        sizePolicy.setHeightForWidth(bijinfangfa->sizePolicy().hasHeightForWidth());
+        bijinfangfa->setSizePolicy(sizePolicy);
+        bijinfangfa->setChecked(true);
+
+        horizontalLayout_4->addWidget(bijinfangfa);
+
+
+        verticalLayout_3->addWidget(widget_6);
+
+        wuchashezhi = new QWidget(groupBox_2);
+        wuchashezhi->setObjectName("wuchashezhi");
+        horizontalLayout_10 = new QHBoxLayout(wuchashezhi);
+        horizontalLayout_10->setObjectName("horizontalLayout_10");
+        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
+        label_39 = new QLabel(wuchashezhi);
+        label_39->setObjectName("label_39");
+        sizePolicy2.setHeightForWidth(label_39->sizePolicy().hasHeightForWidth());
+        label_39->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_10->addWidget(label_39);
+
+        gudingwucha = new QDoubleSpinBox(wuchashezhi);
+        gudingwucha->setObjectName("gudingwucha");
+        gudingwucha->setMinimumSize(QSize(0, 30));
+
+        horizontalLayout_10->addWidget(gudingwucha);
+
+        label_40 = new QLabel(wuchashezhi);
+        label_40->setObjectName("label_40");
+        sizePolicy2.setHeightForWidth(label_40->sizePolicy().hasHeightForWidth());
+        label_40->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_10->addWidget(label_40);
+
+
+        verticalLayout_3->addWidget(wuchashezhi);
+
+        yunxuwuchashezhi = new QWidget(groupBox_2);
+        yunxuwuchashezhi->setObjectName("yunxuwuchashezhi");
+        horizontalLayout_6 = new QHBoxLayout(yunxuwuchashezhi);
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_33 = new QLabel(yunxuwuchashezhi);
+        label_33->setObjectName("label_33");
+        sizePolicy2.setHeightForWidth(label_33->sizePolicy().hasHeightForWidth());
+        label_33->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_6->addWidget(label_33);
+
+        zuidawucha = new QDoubleSpinBox(yunxuwuchashezhi);
+        zuidawucha->setObjectName("zuidawucha");
+        zuidawucha->setMinimumSize(QSize(0, 30));
+
+        horizontalLayout_6->addWidget(zuidawucha);
+
+        label_32 = new QLabel(yunxuwuchashezhi);
+        label_32->setObjectName("label_32");
+        sizePolicy2.setHeightForWidth(label_32->sizePolicy().hasHeightForWidth());
+        label_32->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_6->addWidget(label_32);
+
+
+        verticalLayout_3->addWidget(yunxuwuchashezhi);
+
+
+        gridLayout_10->addWidget(groupBox_2, 1, 0, 1, 1);
+
+        groupBox_3 = new QGroupBox(widget_12);
+        groupBox_3->setObjectName("groupBox_3");
+        gridLayout_6 = new QGridLayout(groupBox_3);
+        gridLayout_6->setObjectName("gridLayout_6");
+        gridLayout_6->setContentsMargins(3, 3, 3, 3);
+        xuanzequxian = new QTabWidget(groupBox_3);
+        xuanzequxian->setObjectName("xuanzequxian");
+        sizePolicy.setHeightForWidth(xuanzequxian->sizePolicy().hasHeightForWidth());
+        xuanzequxian->setSizePolicy(sizePolicy);
+        xuanzequxian->setStyleSheet(QString::fromUtf8(""));
+        tab = new QWidget();
+        tab->setObjectName("tab");
+        gridLayout_2 = new QGridLayout(tab);
+        gridLayout_2->setObjectName("gridLayout_2");
+        label = new QLabel(tab);
+        label->setObjectName("label");
+        sizePolicy2.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy2);
+
+        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+
+        label_4 = new QLabel(tab);
+        label_4->setObjectName("label_4");
+        sizePolicy2.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
+        label_4->setSizePolicy(sizePolicy2);
+
+        gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
+
+        x_zhongdian = new QDoubleSpinBox(tab);
+        x_zhongdian->setObjectName("x_zhongdian");
+        x_zhongdian->setMinimumSize(QSize(0, 30));
+
+        gridLayout_2->addWidget(x_zhongdian, 1, 1, 1, 1);
+
+        label_5 = new QLabel(tab);
+        label_5->setObjectName("label_5");
+        sizePolicy1.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
+        label_5->setSizePolicy(sizePolicy1);
+        label_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_2->addWidget(label_5, 2, 0, 1, 1);
+
+        mishu = new QDoubleSpinBox(tab);
+        mishu->setObjectName("mishu");
+        mishu->setMinimumSize(QSize(0, 30));
+
+        gridLayout_2->addWidget(mishu, 2, 1, 1, 1);
+
+        label_2 = new QLabel(tab);
+        label_2->setObjectName("label_2");
+        sizePolicy2.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy2);
+
+        gridLayout_2->addWidget(label_2, 0, 2, 1, 1);
+
+        label_6 = new QLabel(tab);
+        label_6->setObjectName("label_6");
+        sizePolicy2.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
+        label_6->setSizePolicy(sizePolicy2);
+
+        gridLayout_2->addWidget(label_6, 2, 2, 1, 1);
+
+        x_qidian = new QDoubleSpinBox(tab);
+        x_qidian->setObjectName("x_qidian");
+        x_qidian->setMinimumSize(QSize(0, 30));
+
+        gridLayout_2->addWidget(x_qidian, 0, 1, 1, 1);
+
+        label_3 = new QLabel(tab);
+        label_3->setObjectName("label_3");
+        sizePolicy2.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
+        label_3->setSizePolicy(sizePolicy2);
+
+        gridLayout_2->addWidget(label_3, 1, 2, 1, 1);
+
+        xuanzequxian->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName("tab_2");
+        gridLayout_3 = new QGridLayout(tab_2);
+        gridLayout_3->setObjectName("gridLayout_3");
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_2, 4, 3, 1, 1);
+
+        label_14 = new QLabel(tab_2);
+        label_14->setObjectName("label_14");
+
+        gridLayout_3->addWidget(label_14, 2, 2, 1, 1);
+
+        huichengjiao = new QDoubleSpinBox(tab_2);
+        huichengjiao->setObjectName("huichengjiao");
+        huichengjiao->setMinimumSize(QSize(100, 30));
+
+        gridLayout_3->addWidget(huichengjiao, 2, 5, 1, 1);
+
+        yuanxiujiao = new QDoubleSpinBox(tab_2);
+        yuanxiujiao->setObjectName("yuanxiujiao");
+        yuanxiujiao->setMinimumSize(QSize(100, 30));
+
+        gridLayout_3->addWidget(yuanxiujiao, 4, 5, 1, 1);
+
+        jinxiujiao = new QDoubleSpinBox(tab_2);
+        jinxiujiao->setObjectName("jinxiujiao");
+        jinxiujiao->setMinimumSize(QSize(100, 30));
+
+        gridLayout_3->addWidget(jinxiujiao, 4, 1, 1, 1);
+
+        label_16 = new QLabel(tab_2);
+        label_16->setObjectName("label_16");
+
+        gridLayout_3->addWidget(label_16, 2, 4, 1, 1);
+
+        label_18 = new QLabel(tab_2);
+        label_18->setObjectName("label_18");
+
+        gridLayout_3->addWidget(label_18, 4, 4, 1, 1);
+
+        label_15 = new QLabel(tab_2);
+        label_15->setObjectName("label_15");
+        sizePolicy1.setHeightForWidth(label_15->sizePolicy().hasHeightForWidth());
+        label_15->setSizePolicy(sizePolicy1);
+
+        gridLayout_3->addWidget(label_15, 2, 6, 1, 1);
+
+        label_17 = new QLabel(tab_2);
+        label_17->setObjectName("label_17");
+        sizePolicy1.setHeightForWidth(label_17->sizePolicy().hasHeightForWidth());
+        label_17->setSizePolicy(sizePolicy1);
+
+        gridLayout_3->addWidget(label_17, 4, 6, 1, 1);
+
+        shengcheng = new QDoubleSpinBox(tab_2);
+        shengcheng->setObjectName("shengcheng");
+        QSizePolicy sizePolicy3(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(shengcheng->sizePolicy().hasHeightForWidth());
+        shengcheng->setSizePolicy(sizePolicy3);
+        shengcheng->setMinimumSize(QSize(0, 30));
+
+        gridLayout_3->addWidget(shengcheng, 1, 1, 1, 5);
+
+        label_19 = new QLabel(tab_2);
+        label_19->setObjectName("label_19");
+
+        gridLayout_3->addWidget(label_19, 4, 2, 1, 1);
+
+        label_9 = new QLabel(tab_2);
+        label_9->setObjectName("label_9");
+        sizePolicy2.setHeightForWidth(label_9->sizePolicy().hasHeightForWidth());
+        label_9->setSizePolicy(sizePolicy2);
+
+        gridLayout_3->addWidget(label_9, 1, 6, 1, 1);
+
+        label_10 = new QLabel(tab_2);
+        label_10->setObjectName("label_10");
+        sizePolicy1.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
+        label_10->setSizePolicy(sizePolicy1);
+        label_10->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_3->addWidget(label_10, 1, 0, 1, 1);
+
+        jiyuanzhijing = new QDoubleSpinBox(tab_2);
+        jiyuanzhijing->setObjectName("jiyuanzhijing");
+        sizePolicy3.setHeightForWidth(jiyuanzhijing->sizePolicy().hasHeightForWidth());
+        jiyuanzhijing->setSizePolicy(sizePolicy3);
+        jiyuanzhijing->setMinimumSize(QSize(0, 30));
+
+        gridLayout_3->addWidget(jiyuanzhijing, 0, 1, 1, 5);
+
+        shengchengjiao = new QDoubleSpinBox(tab_2);
+        shengchengjiao->setObjectName("shengchengjiao");
+        shengchengjiao->setMinimumSize(QSize(100, 30));
+
+        gridLayout_3->addWidget(shengchengjiao, 2, 1, 1, 1);
+
+        label_8 = new QLabel(tab_2);
+        label_8->setObjectName("label_8");
+        sizePolicy2.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
+        label_8->setSizePolicy(sizePolicy2);
+
+        gridLayout_3->addWidget(label_8, 0, 6, 1, 1);
+
+        label_20 = new QLabel(tab_2);
+        label_20->setObjectName("label_20");
+        label_20->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_3->addWidget(label_20, 4, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer, 2, 3, 1, 1);
+
+        label_13 = new QLabel(tab_2);
+        label_13->setObjectName("label_13");
+        label_13->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_3->addWidget(label_13, 2, 0, 1, 1);
+
+        label_7 = new QLabel(tab_2);
+        label_7->setObjectName("label_7");
+        sizePolicy2.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
+        label_7->setSizePolicy(sizePolicy2);
+        label_7->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_3->addWidget(label_7, 0, 0, 1, 1);
+
+        xuanzequxian->addTab(tab_2, QString());
+
+        gridLayout_6->addWidget(xuanzequxian, 0, 0, 1, 1);
+
+
+        gridLayout_10->addWidget(groupBox_3, 0, 0, 1, 1);
+
+        groupBox_5 = new QGroupBox(widget_12);
+        groupBox_5->setObjectName("groupBox_5");
+        gridLayout_5 = new QGridLayout(groupBox_5);
+        gridLayout_5->setObjectName("gridLayout_5");
+        gridLayout_5->setContentsMargins(9, 9, 9, 9);
+        label_38 = new QLabel(groupBox_5);
+        label_38->setObjectName("label_38");
+
+        gridLayout_5->addWidget(label_38, 1, 0, 1, 1);
+
+        zuidawuchaxianshi = new QLabel(groupBox_5);
+        zuidawuchaxianshi->setObjectName("zuidawuchaxianshi");
+
+        gridLayout_5->addWidget(zuidawuchaxianshi, 0, 1, 1, 1);
+
+        quxianduanshuxianshi = new QLabel(groupBox_5);
+        quxianduanshuxianshi->setObjectName("quxianduanshuxianshi");
+
+        gridLayout_5->addWidget(quxianduanshuxianshi, 1, 1, 1, 1);
+
+        label_37 = new QLabel(groupBox_5);
+        label_37->setObjectName("label_37");
+        sizePolicy2.setHeightForWidth(label_37->sizePolicy().hasHeightForWidth());
+        label_37->setSizePolicy(sizePolicy2);
+
+        gridLayout_5->addWidget(label_37, 0, 0, 1, 1);
+
+
+        gridLayout_10->addWidget(groupBox_5, 2, 0, 1, 1);
+
+        groupBox_4 = new QGroupBox(widget_12);
+        groupBox_4->setObjectName("groupBox_4");
+        sizePolicy1.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
+        groupBox_4->setSizePolicy(sizePolicy1);
+        horizontalLayout_7 = new QHBoxLayout(groupBox_4);
+        horizontalLayout_7->setObjectName("horizontalLayout_7");
+        horizontalLayout_7->setContentsMargins(9, 9, 9, 15);
+        label_26 = new QLabel(groupBox_4);
+        label_26->setObjectName("label_26");
+        sizePolicy2.setHeightForWidth(label_26->sizePolicy().hasHeightForWidth());
+        label_26->setSizePolicy(sizePolicy2);
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Source Han Serif Heavy")});
+        font.setPointSize(14);
+        font.setBold(true);
+        label_26->setFont(font);
+
+        horizontalLayout_7->addWidget(label_26);
+
+        label_27 = new QLabel(groupBox_4);
+        label_27->setObjectName("label_27");
+        sizePolicy2.setHeightForWidth(label_27->sizePolicy().hasHeightForWidth());
+        label_27->setSizePolicy(sizePolicy2);
+        label_27->setFont(font);
+
+        horizontalLayout_7->addWidget(label_27);
+
+        label_34 = new QLabel(groupBox_4);
+        label_34->setObjectName("label_34");
+        sizePolicy2.setHeightForWidth(label_34->sizePolicy().hasHeightForWidth());
+        label_34->setSizePolicy(sizePolicy2);
+        label_34->setFont(font);
+
+        horizontalLayout_7->addWidget(label_34);
+
+
+        gridLayout_10->addWidget(groupBox_4, 2, 1, 1, 1);
+
+        groupBox = new QGroupBox(widget_12);
+        groupBox->setObjectName("groupBox");
         sizePolicy1.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
         groupBox->setSizePolicy(sizePolicy1);
         gridLayout_4 = new QGridLayout(groupBox);
@@ -191,9 +654,6 @@ public:
         gridLayout_4->setContentsMargins(-1, -1, -1, 9);
         label_23 = new QLabel(groupBox);
         label_23->setObjectName("label_23");
-        QSizePolicy sizePolicy2(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(label_23->sizePolicy().hasHeightForWidth());
         label_23->setSizePolicy(sizePolicy2);
 
@@ -215,12 +675,9 @@ public:
 
         tuidaogaodu = new QDoubleSpinBox(groupBox);
         tuidaogaodu->setObjectName("tuidaogaodu");
-        QSizePolicy sizePolicy3(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(tuidaogaodu->sizePolicy().hasHeightForWidth());
         tuidaogaodu->setSizePolicy(sizePolicy3);
-        tuidaogaodu->setMinimumSize(QSize(0, 30));
+        tuidaogaodu->setMinimumSize(QSize(120, 30));
 
         gridLayout_4->addWidget(tuidaogaodu, 6, 1, 1, 1);
 
@@ -415,460 +872,10 @@ public:
         gridLayout_4->addWidget(label_12, 4, 0, 1, 1);
 
 
-        gridLayout->addWidget(groupBox, 3, 1, 3, 1);
+        gridLayout_10->addWidget(groupBox, 0, 1, 2, 1);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_2, 7, 0, 1, 1);
-
-        groupBox_5 = new QGroupBox(centralwidget);
-        groupBox_5->setObjectName("groupBox_5");
-        gridLayout_5 = new QGridLayout(groupBox_5);
-        gridLayout_5->setObjectName("gridLayout_5");
-        gridLayout_5->setContentsMargins(9, 9, 9, 9);
-        label_38 = new QLabel(groupBox_5);
-        label_38->setObjectName("label_38");
-
-        gridLayout_5->addWidget(label_38, 1, 0, 1, 1);
-
-        zuidawuchaxianshi = new QLabel(groupBox_5);
-        zuidawuchaxianshi->setObjectName("zuidawuchaxianshi");
-
-        gridLayout_5->addWidget(zuidawuchaxianshi, 0, 1, 1, 1);
-
-        quxianduanshuxianshi = new QLabel(groupBox_5);
-        quxianduanshuxianshi->setObjectName("quxianduanshuxianshi");
-
-        gridLayout_5->addWidget(quxianduanshuxianshi, 1, 1, 1, 1);
-
-        label_37 = new QLabel(groupBox_5);
-        label_37->setObjectName("label_37");
-        sizePolicy2.setHeightForWidth(label_37->sizePolicy().hasHeightForWidth());
-        label_37->setSizePolicy(sizePolicy2);
-
-        gridLayout_5->addWidget(label_37, 0, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox_5, 6, 0, 1, 1);
-
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        verticalLayout = new QVBoxLayout(widget);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        groupBox_2 = new QGroupBox(widget);
-        groupBox_2->setObjectName("groupBox_2");
-        sizePolicy1.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
-        groupBox_2->setSizePolicy(sizePolicy1);
-        verticalLayout_3 = new QVBoxLayout(groupBox_2);
-        verticalLayout_3->setObjectName("verticalLayout_3");
-        widget_5 = new QWidget(groupBox_2);
-        widget_5->setObjectName("widget_5");
-        sizePolicy2.setHeightForWidth(widget_5->sizePolicy().hasHeightForWidth());
-        widget_5->setSizePolicy(sizePolicy2);
-        horizontalLayout_3 = new QHBoxLayout(widget_5);
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_28 = new QLabel(widget_5);
-        label_28->setObjectName("label_28");
-        sizePolicy2.setHeightForWidth(label_28->sizePolicy().hasHeightForWidth());
-        label_28->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_3->addWidget(label_28);
-
-        zuodaobu = new QRadioButton(widget_5);
-        zuodaobu->setObjectName("zuodaobu");
-        sizePolicy.setHeightForWidth(zuodaobu->sizePolicy().hasHeightForWidth());
-        zuodaobu->setSizePolicy(sizePolicy);
-        zuodaobu->setChecked(true);
-
-        horizontalLayout_3->addWidget(zuodaobu);
-
-        youdaobu = new QRadioButton(widget_5);
-        youdaobu->setObjectName("youdaobu");
-        sizePolicy.setHeightForWidth(youdaobu->sizePolicy().hasHeightForWidth());
-        youdaobu->setSizePolicy(sizePolicy);
-
-        horizontalLayout_3->addWidget(youdaobu);
-
-
-        verticalLayout_3->addWidget(widget_5);
-
-        widget_7 = new QWidget(groupBox_2);
-        widget_7->setObjectName("widget_7");
-        horizontalLayout_5 = new QHBoxLayout(widget_7);
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_31 = new QLabel(widget_7);
-        label_31->setObjectName("label_31");
-        sizePolicy2.setHeightForWidth(label_31->sizePolicy().hasHeightForWidth());
-        label_31->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_5->addWidget(label_31);
-
-        daojubanjing = new QDoubleSpinBox(widget_7);
-        daojubanjing->setObjectName("daojubanjing");
-        daojubanjing->setMinimumSize(QSize(0, 30));
-
-        horizontalLayout_5->addWidget(daojubanjing);
-
-        label_30 = new QLabel(widget_7);
-        label_30->setObjectName("label_30");
-        sizePolicy2.setHeightForWidth(label_30->sizePolicy().hasHeightForWidth());
-        label_30->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_5->addWidget(label_30);
-
-
-        verticalLayout_3->addWidget(widget_7);
-
-        widget_6 = new QWidget(groupBox_2);
-        widget_6->setObjectName("widget_6");
-        sizePolicy2.setHeightForWidth(widget_6->sizePolicy().hasHeightForWidth());
-        widget_6->setSizePolicy(sizePolicy2);
-        horizontalLayout_4 = new QHBoxLayout(widget_6);
-        horizontalLayout_4->setObjectName("horizontalLayout_4");
-        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        label_29 = new QLabel(widget_6);
-        label_29->setObjectName("label_29");
-        sizePolicy2.setHeightForWidth(label_29->sizePolicy().hasHeightForWidth());
-        label_29->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_4->addWidget(label_29);
-
-        dengjianju = new QRadioButton(widget_6);
-        dengjianju->setObjectName("dengjianju");
-        sizePolicy.setHeightForWidth(dengjianju->sizePolicy().hasHeightForWidth());
-        dengjianju->setSizePolicy(sizePolicy);
-        dengjianju->setChecked(false);
-
-        horizontalLayout_4->addWidget(dengjianju);
-
-        dengwucha = new QRadioButton(widget_6);
-        dengwucha->setObjectName("dengwucha");
-        sizePolicy.setHeightForWidth(dengwucha->sizePolicy().hasHeightForWidth());
-        dengwucha->setSizePolicy(sizePolicy);
-
-        horizontalLayout_4->addWidget(dengwucha);
-
-        bijinfangfa = new QRadioButton(widget_6);
-        bijinfangfa->setObjectName("bijinfangfa");
-        sizePolicy.setHeightForWidth(bijinfangfa->sizePolicy().hasHeightForWidth());
-        bijinfangfa->setSizePolicy(sizePolicy);
-        bijinfangfa->setChecked(true);
-
-        horizontalLayout_4->addWidget(bijinfangfa);
-
-
-        verticalLayout_3->addWidget(widget_6);
-
-        wuchashezhi = new QWidget(groupBox_2);
-        wuchashezhi->setObjectName("wuchashezhi");
-        horizontalLayout_10 = new QHBoxLayout(wuchashezhi);
-        horizontalLayout_10->setObjectName("horizontalLayout_10");
-        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        label_39 = new QLabel(wuchashezhi);
-        label_39->setObjectName("label_39");
-        sizePolicy2.setHeightForWidth(label_39->sizePolicy().hasHeightForWidth());
-        label_39->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_10->addWidget(label_39);
-
-        gudingwucha = new QDoubleSpinBox(wuchashezhi);
-        gudingwucha->setObjectName("gudingwucha");
-        gudingwucha->setMinimumSize(QSize(0, 30));
-
-        horizontalLayout_10->addWidget(gudingwucha);
-
-        label_40 = new QLabel(wuchashezhi);
-        label_40->setObjectName("label_40");
-        sizePolicy2.setHeightForWidth(label_40->sizePolicy().hasHeightForWidth());
-        label_40->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_10->addWidget(label_40);
-
-
-        verticalLayout_3->addWidget(wuchashezhi);
-
-        yunxuwuchashezhi = new QWidget(groupBox_2);
-        yunxuwuchashezhi->setObjectName("yunxuwuchashezhi");
-        horizontalLayout_6 = new QHBoxLayout(yunxuwuchashezhi);
-        horizontalLayout_6->setObjectName("horizontalLayout_6");
-        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_33 = new QLabel(yunxuwuchashezhi);
-        label_33->setObjectName("label_33");
-        sizePolicy2.setHeightForWidth(label_33->sizePolicy().hasHeightForWidth());
-        label_33->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_6->addWidget(label_33);
-
-        zuidawucha = new QDoubleSpinBox(yunxuwuchashezhi);
-        zuidawucha->setObjectName("zuidawucha");
-        zuidawucha->setMinimumSize(QSize(0, 30));
-
-        horizontalLayout_6->addWidget(zuidawucha);
-
-        label_32 = new QLabel(yunxuwuchashezhi);
-        label_32->setObjectName("label_32");
-        sizePolicy2.setHeightForWidth(label_32->sizePolicy().hasHeightForWidth());
-        label_32->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_6->addWidget(label_32);
-
-
-        verticalLayout_3->addWidget(yunxuwuchashezhi);
-
-
-        verticalLayout->addWidget(groupBox_2);
-
-
-        gridLayout->addWidget(widget, 5, 0, 1, 1);
-
-        groupBox_3 = new QGroupBox(centralwidget);
-        groupBox_3->setObjectName("groupBox_3");
-        gridLayout_6 = new QGridLayout(groupBox_3);
-        gridLayout_6->setObjectName("gridLayout_6");
-        gridLayout_6->setContentsMargins(3, 3, 3, 3);
-        xuanzequxian = new QTabWidget(groupBox_3);
-        xuanzequxian->setObjectName("xuanzequxian");
-        sizePolicy.setHeightForWidth(xuanzequxian->sizePolicy().hasHeightForWidth());
-        xuanzequxian->setSizePolicy(sizePolicy);
-        xuanzequxian->setStyleSheet(QString::fromUtf8(""));
-        tab = new QWidget();
-        tab->setObjectName("tab");
-        gridLayout_2 = new QGridLayout(tab);
-        gridLayout_2->setObjectName("gridLayout_2");
-        label = new QLabel(tab);
-        label->setObjectName("label");
-        sizePolicy2.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy2);
-
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
-
-        label_4 = new QLabel(tab);
-        label_4->setObjectName("label_4");
-        sizePolicy2.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
-        label_4->setSizePolicy(sizePolicy2);
-
-        gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
-
-        x_zhongdian = new QDoubleSpinBox(tab);
-        x_zhongdian->setObjectName("x_zhongdian");
-        x_zhongdian->setMinimumSize(QSize(0, 30));
-
-        gridLayout_2->addWidget(x_zhongdian, 1, 1, 1, 1);
-
-        label_5 = new QLabel(tab);
-        label_5->setObjectName("label_5");
-        sizePolicy1.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
-        label_5->setSizePolicy(sizePolicy1);
-        label_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_2->addWidget(label_5, 2, 0, 1, 1);
-
-        mishu = new QDoubleSpinBox(tab);
-        mishu->setObjectName("mishu");
-        mishu->setMinimumSize(QSize(0, 30));
-
-        gridLayout_2->addWidget(mishu, 2, 1, 1, 1);
-
-        label_2 = new QLabel(tab);
-        label_2->setObjectName("label_2");
-        sizePolicy2.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy2);
-
-        gridLayout_2->addWidget(label_2, 0, 2, 1, 1);
-
-        label_6 = new QLabel(tab);
-        label_6->setObjectName("label_6");
-        sizePolicy2.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
-        label_6->setSizePolicy(sizePolicy2);
-
-        gridLayout_2->addWidget(label_6, 2, 2, 1, 1);
-
-        x_qidian = new QDoubleSpinBox(tab);
-        x_qidian->setObjectName("x_qidian");
-        x_qidian->setMinimumSize(QSize(0, 30));
-
-        gridLayout_2->addWidget(x_qidian, 0, 1, 1, 1);
-
-        label_3 = new QLabel(tab);
-        label_3->setObjectName("label_3");
-        sizePolicy2.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
-        label_3->setSizePolicy(sizePolicy2);
-
-        gridLayout_2->addWidget(label_3, 1, 2, 1, 1);
-
-        xuanzequxian->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName("tab_2");
-        gridLayout_3 = new QGridLayout(tab_2);
-        gridLayout_3->setObjectName("gridLayout_3");
-        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        gridLayout_3->addItem(horizontalSpacer_2, 4, 3, 1, 1);
-
-        label_14 = new QLabel(tab_2);
-        label_14->setObjectName("label_14");
-
-        gridLayout_3->addWidget(label_14, 2, 2, 1, 1);
-
-        huichengjiao = new QDoubleSpinBox(tab_2);
-        huichengjiao->setObjectName("huichengjiao");
-        huichengjiao->setMinimumSize(QSize(100, 30));
-
-        gridLayout_3->addWidget(huichengjiao, 2, 5, 1, 1);
-
-        yuanxiujiao = new QDoubleSpinBox(tab_2);
-        yuanxiujiao->setObjectName("yuanxiujiao");
-        yuanxiujiao->setMinimumSize(QSize(100, 30));
-
-        gridLayout_3->addWidget(yuanxiujiao, 4, 5, 1, 1);
-
-        jinxiujiao = new QDoubleSpinBox(tab_2);
-        jinxiujiao->setObjectName("jinxiujiao");
-        jinxiujiao->setMinimumSize(QSize(100, 30));
-
-        gridLayout_3->addWidget(jinxiujiao, 4, 1, 1, 1);
-
-        label_16 = new QLabel(tab_2);
-        label_16->setObjectName("label_16");
-
-        gridLayout_3->addWidget(label_16, 2, 4, 1, 1);
-
-        label_18 = new QLabel(tab_2);
-        label_18->setObjectName("label_18");
-
-        gridLayout_3->addWidget(label_18, 4, 4, 1, 1);
-
-        label_15 = new QLabel(tab_2);
-        label_15->setObjectName("label_15");
-        sizePolicy1.setHeightForWidth(label_15->sizePolicy().hasHeightForWidth());
-        label_15->setSizePolicy(sizePolicy1);
-
-        gridLayout_3->addWidget(label_15, 2, 6, 1, 1);
-
-        label_17 = new QLabel(tab_2);
-        label_17->setObjectName("label_17");
-        sizePolicy1.setHeightForWidth(label_17->sizePolicy().hasHeightForWidth());
-        label_17->setSizePolicy(sizePolicy1);
-
-        gridLayout_3->addWidget(label_17, 4, 6, 1, 1);
-
-        shengcheng = new QDoubleSpinBox(tab_2);
-        shengcheng->setObjectName("shengcheng");
-        sizePolicy3.setHeightForWidth(shengcheng->sizePolicy().hasHeightForWidth());
-        shengcheng->setSizePolicy(sizePolicy3);
-        shengcheng->setMinimumSize(QSize(0, 30));
-
-        gridLayout_3->addWidget(shengcheng, 1, 1, 1, 5);
-
-        label_19 = new QLabel(tab_2);
-        label_19->setObjectName("label_19");
-
-        gridLayout_3->addWidget(label_19, 4, 2, 1, 1);
-
-        label_9 = new QLabel(tab_2);
-        label_9->setObjectName("label_9");
-        sizePolicy2.setHeightForWidth(label_9->sizePolicy().hasHeightForWidth());
-        label_9->setSizePolicy(sizePolicy2);
-
-        gridLayout_3->addWidget(label_9, 1, 6, 1, 1);
-
-        label_10 = new QLabel(tab_2);
-        label_10->setObjectName("label_10");
-        sizePolicy1.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
-        label_10->setSizePolicy(sizePolicy1);
-        label_10->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(label_10, 1, 0, 1, 1);
-
-        jiyuanzhijing = new QDoubleSpinBox(tab_2);
-        jiyuanzhijing->setObjectName("jiyuanzhijing");
-        sizePolicy3.setHeightForWidth(jiyuanzhijing->sizePolicy().hasHeightForWidth());
-        jiyuanzhijing->setSizePolicy(sizePolicy3);
-        jiyuanzhijing->setMinimumSize(QSize(0, 30));
-
-        gridLayout_3->addWidget(jiyuanzhijing, 0, 1, 1, 5);
-
-        shengchengjiao = new QDoubleSpinBox(tab_2);
-        shengchengjiao->setObjectName("shengchengjiao");
-        shengchengjiao->setMinimumSize(QSize(100, 30));
-
-        gridLayout_3->addWidget(shengchengjiao, 2, 1, 1, 1);
-
-        label_8 = new QLabel(tab_2);
-        label_8->setObjectName("label_8");
-        sizePolicy2.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
-        label_8->setSizePolicy(sizePolicy2);
-
-        gridLayout_3->addWidget(label_8, 0, 6, 1, 1);
-
-        label_20 = new QLabel(tab_2);
-        label_20->setObjectName("label_20");
-        label_20->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(label_20, 4, 0, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        gridLayout_3->addItem(horizontalSpacer, 2, 3, 1, 1);
-
-        label_13 = new QLabel(tab_2);
-        label_13->setObjectName("label_13");
-        label_13->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(label_13, 2, 0, 1, 1);
-
-        label_7 = new QLabel(tab_2);
-        label_7->setObjectName("label_7");
-        sizePolicy2.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
-        label_7->setSizePolicy(sizePolicy2);
-        label_7->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(label_7, 0, 0, 1, 1);
-
-        xuanzequxian->addTab(tab_2, QString());
-
-        gridLayout_6->addWidget(xuanzequxian, 0, 0, 1, 1);
-
-
-        gridLayout->addWidget(groupBox_3, 3, 0, 2, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 1, 0, 1, 1);
-
-        groupBox_4 = new QGroupBox(centralwidget);
-        groupBox_4->setObjectName("groupBox_4");
-        sizePolicy1.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
-        groupBox_4->setSizePolicy(sizePolicy1);
-        horizontalLayout_7 = new QHBoxLayout(groupBox_4);
-        horizontalLayout_7->setObjectName("horizontalLayout_7");
-        horizontalLayout_7->setContentsMargins(9, 9, 9, 15);
-        label_26 = new QLabel(groupBox_4);
-        label_26->setObjectName("label_26");
-        sizePolicy2.setHeightForWidth(label_26->sizePolicy().hasHeightForWidth());
-        label_26->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_7->addWidget(label_26);
-
-        label_27 = new QLabel(groupBox_4);
-        label_27->setObjectName("label_27");
-        sizePolicy2.setHeightForWidth(label_27->sizePolicy().hasHeightForWidth());
-        label_27->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_7->addWidget(label_27);
-
-        label_34 = new QLabel(groupBox_4);
-        label_34->setObjectName("label_34");
-        sizePolicy2.setHeightForWidth(label_34->sizePolicy().hasHeightForWidth());
-        label_34->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_7->addWidget(label_34);
-
-
-        gridLayout->addWidget(groupBox_4, 6, 1, 1, 1);
+        gridLayout->addWidget(widget_12, 0, 0, 2, 2);
 
         widget_2 = new QWidget(centralwidget);
         widget_2->setObjectName("widget_2");
@@ -883,6 +890,9 @@ public:
         sizePolicy4.setHeightForWidth(paint_widget->sizePolicy().hasHeightForWidth());
         paint_widget->setSizePolicy(sizePolicy4);
         paint_widget->setMinimumSize(QSize(600, 0));
+        QFont font1;
+        font1.setPointSize(9);
+        paint_widget->setFont(font1);
         paint_widget->setMouseTracking(true);
         paint_widget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
 
@@ -915,6 +925,27 @@ public:
 
         verticalLayout_2->addWidget(widget_8);
 
+        widget = new QWidget(widget_2);
+        widget->setObjectName("widget");
+        sizePolicy3.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
+        widget->setSizePolicy(sizePolicy3);
+        horizontalLayout_13 = new QHBoxLayout(widget);
+        horizontalLayout_13->setObjectName("horizontalLayout_13");
+        horizontalLayout_13->setContentsMargins(0, 0, 0, 0);
+        label_65 = new QLabel(widget);
+        label_65->setObjectName("label_65");
+
+        horizontalLayout_13->addWidget(label_65);
+
+        progressBar = new QProgressBar(widget);
+        progressBar->setObjectName("progressBar");
+        progressBar->setValue(24);
+
+        horizontalLayout_13->addWidget(progressBar);
+
+
+        verticalLayout_2->addWidget(widget);
+
         widget_3 = new QWidget(widget_2);
         widget_3->setObjectName("widget_3");
         sizePolicy3.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
@@ -940,22 +971,48 @@ public:
 
         horizontalLayout_2->addWidget(jinxingfangzhen);
 
-        shengchengNC = new QPushButton(widget_3);
-        shengchengNC->setObjectName("shengchengNC");
-        shengchengNC->setMinimumSize(QSize(120, 30));
-
-        horizontalLayout_2->addWidget(shengchengNC);
-
 
         verticalLayout_2->addWidget(widget_3);
 
 
-        gridLayout->addWidget(widget_2, 0, 3, 9, 1);
+        gridLayout->addWidget(widget_2, 0, 3, 5, 1);
+
+        groupBox_7 = new QGroupBox(centralwidget);
+        groupBox_7->setObjectName("groupBox_7");
+        gridLayout_11 = new QGridLayout(groupBox_7);
+        gridLayout_11->setObjectName("gridLayout_11");
+        gridLayout_11->setContentsMargins(9, 9, 9, 9);
+        shengchengNC = new QPushButton(groupBox_7);
+        shengchengNC->setObjectName("shengchengNC");
+        sizePolicy2.setHeightForWidth(shengchengNC->sizePolicy().hasHeightForWidth());
+        shengchengNC->setSizePolicy(sizePolicy2);
+        shengchengNC->setMinimumSize(QSize(100, 30));
+
+        gridLayout_11->addWidget(shengchengNC, 0, 1, 1, 1);
+
+        gCode = new QPlainTextEdit(groupBox_7);
+        gCode->setObjectName("gCode");
+        sizePolicy4.setHeightForWidth(gCode->sizePolicy().hasHeightForWidth());
+        gCode->setSizePolicy(sizePolicy4);
+        gCode->setMinimumSize(QSize(0, 200));
+
+        gridLayout_11->addWidget(gCode, 0, 0, 2, 1);
+
+        shengchengNC_2 = new QPushButton(groupBox_7);
+        shengchengNC_2->setObjectName("shengchengNC_2");
+        sizePolicy2.setHeightForWidth(shengchengNC_2->sizePolicy().hasHeightForWidth());
+        shengchengNC_2->setSizePolicy(sizePolicy2);
+        shengchengNC_2->setMinimumSize(QSize(100, 30));
+
+        gridLayout_11->addWidget(shengchengNC_2, 1, 1, 1, 1);
+
+
+        gridLayout->addWidget(groupBox_7, 2, 0, 3, 2);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1252, 21));
+        menubar->setGeometry(QRect(0, 0, 1276, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -977,33 +1034,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("MainWindow", "\346\234\272\345\272\212\345\217\202\346\225\260", nullptr));
-        label_23->setText(QCoreApplication::translate("MainWindow", "mm/min", nullptr));
-        label_24->setText(QCoreApplication::translate("MainWindow", "\350\277\233\347\273\231\351\200\237\345\272\246", nullptr));
-        label_21->setText(QCoreApplication::translate("MainWindow", "rpm", nullptr));
-        label_48->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\210\200\351\253\230\345\272\246", nullptr));
-        groupBox_6->setTitle(QCoreApplication::translate("MainWindow", "\345\257\271\345\210\200\345\216\237\347\202\271", nullptr));
-        label_42->setText(QCoreApplication::translate("MainWindow", "Y", nullptr));
-        label_43->setText(QCoreApplication::translate("MainWindow", "Z", nullptr));
-        label_41->setText(QCoreApplication::translate("MainWindow", "X", nullptr));
-        label_44->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
-        label_45->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
-        label_46->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
-        label_25->setText(QCoreApplication::translate("MainWindow", "\345\235\220\346\240\207\344\275\223\347\263\273", nullptr));
-        jueduizuobiao->setText(QCoreApplication::translate("MainWindow", "\347\273\235\345\257\271\345\235\220\346\240\207", nullptr));
-        xiangduizuobiao->setText(QCoreApplication::translate("MainWindow", "\347\233\270\345\257\271\345\235\220\346\240\207", nullptr));
-        label_11->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
-        label_36->setText(QCoreApplication::translate("MainWindow", "\344\270\273\350\275\264\350\275\254\345\220\221", nullptr));
-        zhuzhoushun->setText(QCoreApplication::translate("MainWindow", "\351\241\272\346\227\266\351\222\210", nullptr));
-        zhuzhouni->setText(QCoreApplication::translate("MainWindow", "\351\200\206\346\227\266\351\222\210", nullptr));
-        label_47->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
-        label_22->setText(QCoreApplication::translate("MainWindow", "\344\270\273\350\275\264\350\275\254\351\200\237", nullptr));
-        label_12->setText(QCoreApplication::translate("MainWindow", "\345\212\240\345\267\245\345\216\232\345\272\246", nullptr));
-        groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "\346\233\262\347\272\277\346\225\260\346\215\256", nullptr));
-        label_38->setText(QCoreApplication::translate("MainWindow", "\346\233\262\347\272\277\346\256\265\346\225\260\357\274\232", nullptr));
-        zuidawuchaxianshi->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        quxianduanshuxianshi->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        label_37->setText(QCoreApplication::translate("MainWindow", "\346\234\200\345\244\247\350\257\257\345\267\256\357\274\232", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "\346\217\222\350\241\245\345\217\202\346\225\260", nullptr));
         label_28->setText(QCoreApplication::translate("MainWindow", "\345\210\200\350\241\245\346\226\271\345\220\221", nullptr));
         zuodaobu->setText(QCoreApplication::translate("MainWindow", "\345\267\246\345\210\200\350\241\245", nullptr));
@@ -1039,15 +1069,45 @@ public:
         label_13->setText(QCoreApplication::translate("MainWindow", "\345\215\207\347\250\213\350\247\222", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "\345\237\272\345\234\206\347\233\264\345\276\204", nullptr));
         xuanzequxian->setTabText(xuanzequxian->indexOf(tab_2), QCoreApplication::translate("MainWindow", "\344\275\231\345\274\246\345\212\240\351\200\237\345\272\246\347\233\230\345\275\242\345\207\270\350\275\256", nullptr));
+        groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "\346\233\262\347\272\277\346\225\260\346\215\256", nullptr));
+        label_38->setText(QCoreApplication::translate("MainWindow", "\346\233\262\347\272\277\346\256\265\346\225\260\357\274\232", nullptr));
+        zuidawuchaxianshi->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        quxianduanshuxianshi->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_37->setText(QCoreApplication::translate("MainWindow", "\346\234\200\345\244\247\350\257\257\345\267\256\357\274\232", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("MainWindow", "\345\260\217\347\273\204\346\210\220\345\221\230", nullptr));
-        label_26->setText(QCoreApplication::translate("MainWindow", "3121000034 \351\231\210\345\277\227\350\215\243", nullptr));
-        label_27->setText(QCoreApplication::translate("MainWindow", "3121000036 \350\214\203\346\200\235\351\275\220", nullptr));
-        label_34->setText(QCoreApplication::translate("MainWindow", "3121000048 \346\262\210\345\256\266\346\235\255", nullptr));
+        label_26->setText(QCoreApplication::translate("MainWindow", "\351\231\210\345\277\227\350\215\243", nullptr));
+        label_27->setText(QCoreApplication::translate("MainWindow", "\350\214\203\346\200\235\351\275\220", nullptr));
+        label_34->setText(QCoreApplication::translate("MainWindow", "\346\262\210\345\256\266\346\235\255", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MainWindow", "\346\234\272\345\272\212\345\217\202\346\225\260", nullptr));
+        label_23->setText(QCoreApplication::translate("MainWindow", "mm/min", nullptr));
+        label_24->setText(QCoreApplication::translate("MainWindow", "\350\277\233\347\273\231\351\200\237\345\272\246", nullptr));
+        label_21->setText(QCoreApplication::translate("MainWindow", "rpm", nullptr));
+        label_48->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\210\200\351\253\230\345\272\246", nullptr));
+        groupBox_6->setTitle(QCoreApplication::translate("MainWindow", "\345\210\200\345\205\267\345\216\237\344\275\215", nullptr));
+        label_42->setText(QCoreApplication::translate("MainWindow", "Y", nullptr));
+        label_43->setText(QCoreApplication::translate("MainWindow", "Z", nullptr));
+        label_41->setText(QCoreApplication::translate("MainWindow", "X", nullptr));
+        label_44->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
+        label_45->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
+        label_46->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
+        label_25->setText(QCoreApplication::translate("MainWindow", "\345\235\220\346\240\207\344\275\223\347\263\273", nullptr));
+        jueduizuobiao->setText(QCoreApplication::translate("MainWindow", "\347\273\235\345\257\271\345\235\220\346\240\207", nullptr));
+        xiangduizuobiao->setText(QCoreApplication::translate("MainWindow", "\347\233\270\345\257\271\345\235\220\346\240\207", nullptr));
+        label_11->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
+        label_36->setText(QCoreApplication::translate("MainWindow", "\344\270\273\350\275\264\350\275\254\345\220\221", nullptr));
+        zhuzhoushun->setText(QCoreApplication::translate("MainWindow", "\351\241\272\346\227\266\351\222\210", nullptr));
+        zhuzhouni->setText(QCoreApplication::translate("MainWindow", "\351\200\206\346\227\266\351\222\210", nullptr));
+        label_47->setText(QCoreApplication::translate("MainWindow", "mm", nullptr));
+        label_22->setText(QCoreApplication::translate("MainWindow", "\344\270\273\350\275\264\350\275\254\351\200\237", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "\345\212\240\345\267\245\345\216\232\345\272\246", nullptr));
         label_35->setText(QCoreApplication::translate("MainWindow", "\345\233\276\345\203\217\347\274\251\346\224\276:", nullptr));
-        shengchenglujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220\345\216\237\345\247\213\346\233\262\347\272\277", nullptr));
-        shengchengdaojulujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220\345\210\200\345\205\267\350\267\257\345\276\204", nullptr));
+        label_65->setText(QCoreApplication::translate("MainWindow", "\345\212\240\345\267\245\350\277\233\345\272\246:", nullptr));
+        shengchenglujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220/\346\233\264\346\226\260\345\216\237\345\247\213\346\233\262\347\272\277", nullptr));
+        shengchengdaojulujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220/\346\233\264\346\226\260\345\210\200\345\205\267\350\267\257\345\276\204", nullptr));
         jinxingfangzhen->setText(QCoreApplication::translate("MainWindow", "\350\277\233\350\241\214\345\212\240\345\267\245\344\273\277\347\234\237", nullptr));
+        groupBox_7->setTitle(QCoreApplication::translate("MainWindow", "NC\344\273\243\347\240\201", nullptr));
         shengchengNC->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220NC\344\273\243\347\240\201", nullptr));
+        shengchengNC_2->setText(QCoreApplication::translate("MainWindow", "\344\277\235\345\255\230NC\344\273\243\347\240\201", nullptr));
     } // retranslateUi
 
 };

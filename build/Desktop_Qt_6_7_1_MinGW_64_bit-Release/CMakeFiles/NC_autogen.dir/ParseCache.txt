@@ -27,6 +27,7 @@ E:/Program/CNC/NC/mainwindow.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qbytearrayalgorithms.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qbytearraylist.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qbytearrayview.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcalendar.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qchar.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcompare.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcompare_impl.h
@@ -43,14 +44,17 @@ E:/Program/CNC/NC/mainwindow.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcoreevent.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdarwinhelpers.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdatastream.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdatetime.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdeadlinetimer.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdebug.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdir.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qelapsedtimer.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qendian.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qeventloop.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qexceptionhandling.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfile.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfiledevice.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfileinfo.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qflags.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfloat16.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qforeach.h
@@ -122,6 +126,7 @@ E:/Program/CNC/NC/mainwindow.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtenvironmentvariables.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtextstream.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtimer.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtimezone.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtmetamacros.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtnoop.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtpreprocessorsupport.h
@@ -139,6 +144,7 @@ E:/Program/CNC/NC/mainwindow.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QClipboard
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QPaintEvent
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QPainter
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QPalette
@@ -147,6 +153,7 @@ E:/Program/CNC/NC/mainwindow.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qaction.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qbitmap.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qbrush.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qclipboard.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qcolor.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qcursor.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qevent.h
@@ -186,12 +193,14 @@ E:/Program/CNC/NC/mainwindow.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qvectornd.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qwindowdefs.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QFileDialog
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QLineEdit
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QMainWindow
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QMessageBox
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QWidget
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qdialog.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+ mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qframe.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qlineedit.h
  mdp:D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qmainwindow.h

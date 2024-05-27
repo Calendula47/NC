@@ -19,6 +19,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
@@ -155,6 +156,10 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_35;
     QSlider *horizontalSlider;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_13;
+    QLabel *label_65;
+    QProgressBar *progressBar;
     QWidget *widget_3;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *shengchenglujing;
@@ -172,7 +177,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1252, 818);
+        MainWindow->resize(1276, 818);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -920,6 +925,27 @@ public:
 
         verticalLayout_2->addWidget(widget_8);
 
+        widget = new QWidget(widget_2);
+        widget->setObjectName("widget");
+        sizePolicy3.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
+        widget->setSizePolicy(sizePolicy3);
+        horizontalLayout_13 = new QHBoxLayout(widget);
+        horizontalLayout_13->setObjectName("horizontalLayout_13");
+        horizontalLayout_13->setContentsMargins(0, 0, 0, 0);
+        label_65 = new QLabel(widget);
+        label_65->setObjectName("label_65");
+
+        horizontalLayout_13->addWidget(label_65);
+
+        progressBar = new QProgressBar(widget);
+        progressBar->setObjectName("progressBar");
+        progressBar->setValue(24);
+
+        horizontalLayout_13->addWidget(progressBar);
+
+
+        verticalLayout_2->addWidget(widget);
+
         widget_3 = new QWidget(widget_2);
         widget_3->setObjectName("widget_3");
         sizePolicy3.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
@@ -986,7 +1012,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1252, 21));
+        menubar->setGeometry(QRect(0, 0, 1276, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -1057,7 +1083,7 @@ public:
         label_24->setText(QCoreApplication::translate("MainWindow", "\350\277\233\347\273\231\351\200\237\345\272\246", nullptr));
         label_21->setText(QCoreApplication::translate("MainWindow", "rpm", nullptr));
         label_48->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\210\200\351\253\230\345\272\246", nullptr));
-        groupBox_6->setTitle(QCoreApplication::translate("MainWindow", "\345\257\271\345\210\200\345\216\237\347\202\271", nullptr));
+        groupBox_6->setTitle(QCoreApplication::translate("MainWindow", "\345\210\200\345\205\267\345\216\237\344\275\215", nullptr));
         label_42->setText(QCoreApplication::translate("MainWindow", "Y", nullptr));
         label_43->setText(QCoreApplication::translate("MainWindow", "Z", nullptr));
         label_41->setText(QCoreApplication::translate("MainWindow", "X", nullptr));
@@ -1075,8 +1101,9 @@ public:
         label_22->setText(QCoreApplication::translate("MainWindow", "\344\270\273\350\275\264\350\275\254\351\200\237", nullptr));
         label_12->setText(QCoreApplication::translate("MainWindow", "\345\212\240\345\267\245\345\216\232\345\272\246", nullptr));
         label_35->setText(QCoreApplication::translate("MainWindow", "\345\233\276\345\203\217\347\274\251\346\224\276:", nullptr));
-        shengchenglujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220\345\216\237\345\247\213\346\233\262\347\272\277", nullptr));
-        shengchengdaojulujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220\345\210\200\345\205\267\350\267\257\345\276\204", nullptr));
+        label_65->setText(QCoreApplication::translate("MainWindow", "\345\212\240\345\267\245\350\277\233\345\272\246:", nullptr));
+        shengchenglujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220/\346\233\264\346\226\260\345\216\237\345\247\213\346\233\262\347\272\277", nullptr));
+        shengchengdaojulujing->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220/\346\233\264\346\226\260\345\210\200\345\205\267\350\267\257\345\276\204", nullptr));
         jinxingfangzhen->setText(QCoreApplication::translate("MainWindow", "\350\277\233\350\241\214\345\212\240\345\267\245\344\273\277\347\234\237", nullptr));
         groupBox_7->setTitle(QCoreApplication::translate("MainWindow", "NC\344\273\243\347\240\201", nullptr));
         shengchengNC->setText(QCoreApplication::translate("MainWindow", "\347\224\237\346\210\220NC\344\273\243\347\240\201", nullptr));

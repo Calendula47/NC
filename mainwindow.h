@@ -11,6 +11,8 @@
 #include <QLineEdit>
 #include <QMessageBox>
 #include <QFile>
+#include <QFileDialog>
+#include <QClipboard>
 #include "mihanshuxiaoshu.h"
 #include "yuxuanpamxing.h"
 
@@ -64,6 +66,10 @@ private slots:
     void on_shengchengdaojulujing_clicked();
 
     void on_shengchengNC_clicked();
+
+    void on_shengchengNC_2_clicked();
+
+    void on_xuanzequxian_currentChanged(int index);
 
 private:
     Ui::MainWindow *ui;

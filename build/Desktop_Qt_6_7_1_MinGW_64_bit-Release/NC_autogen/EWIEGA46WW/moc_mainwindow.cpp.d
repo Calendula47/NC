@@ -26,6 +26,7 @@ E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-Release/NC_autogen/EWIEGA4
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qbytearraylist.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qbytearrayview.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcalendar.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qchar.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcompare.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcompare_impl.h \
@@ -42,14 +43,17 @@ E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-Release/NC_autogen/EWIEGA4
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qcoreevent.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdatastream.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdatetime.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdebug.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qdir.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qelapsedtimer.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qendian.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qeventloop.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfile.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfiledevice.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfileinfo.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qflags.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qfloat16.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qforeach.h \
@@ -121,6 +125,7 @@ E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-Release/NC_autogen/EWIEGA4
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtenvironmentvariables.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtextstream.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtimer.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtimezone.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtmetamacros.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtnoop.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -138,6 +143,7 @@ E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-Release/NC_autogen/EWIEGA4
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qversiontagging.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qxptype_traits.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtCore/qyieldcpu.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QClipboard \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QPaintEvent \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QPainter \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/QPalette \
@@ -146,6 +152,7 @@ E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-Release/NC_autogen/EWIEGA4
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qaction.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qbitmap.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qbrush.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qclipboard.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qcolor.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qcursor.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qevent.h \
@@ -185,12 +192,14 @@ E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-Release/NC_autogen/EWIEGA4
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qvectornd.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qwindowdefs.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QFileDialog \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QLineEdit \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QMainWindow \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QMessageBox \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/QWidget \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qdialog.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+  D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qfiledialog.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qframe.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qlineedit.h \
   D:/Applications/QT/6.7.1/mingw_64/include/QtWidgets/qmainwindow.h \
