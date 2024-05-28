@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->x_zhongdian->setRange(0,200);
     ui->mishu->setRange(0,1);
     ui->mishu->setDecimals(3);
-    ui->mishu->setSingleStep(0.001);
+    ui->mishu->setSingleStep(0.125);
     ui->shengchengjiao->setRange(0,360);
     ui->shengchengjiao->setDecimals(1);
     ui->shengchengjiao->setSingleStep(10);
@@ -144,7 +144,7 @@ void MainWindow::paint()//主绘图函数
         }
     }
 
-    if(shengchengdaojulujing==1 && (ui->dengjianju->isChecked() || ui->dengwucha->isChecked()))//生成刀具路径
+    if(shengchengdaojulujing==1)//生成刀具路径
     {
         QPainter toolpainter(&image);
         toolpainter.fillRect(rect(),Qt::transparent);
@@ -183,7 +183,7 @@ void MainWindow::paint()//主绘图函数
         float daojubanjing=ui->daojubanjing->value();
         if(ui->xuanzequxian->currentIndex()==0)//幂函数
         {
-            for(int i=1;i<time;i+=50)
+            for(int i=1;i<time;i+=60)
             {
                 QPointF circleCenter(10*x_toolcompensate[i],10*y_toolcompensate[i]);
                 compensatepainter.drawEllipse(circleCenter,10*daojubanjing,10*daojubanjing);
@@ -191,7 +191,7 @@ void MainWindow::paint()//主绘图函数
         }
         else//凸轮
         {
-            for(int i=1;i<time;i+=50)
+            for(int i=1;i<time;i+=60)
             {
                 QPointF circleCenter(10*COMX[i],-10*COMY[i]);
                 compensatepainter.drawEllipse(circleCenter,10*daojubanjing,10*daojubanjing);
@@ -222,10 +222,34 @@ void MainWindow::on_shengchenglujing_clicked()//点击生成原曲线
         }
         else
         {
-            MIHANSHUXIAOSHU().dengchang_zuobiao(ui->x_qidian->value(),ui->x_zhongdian->value(),ui->mishu->value(),ui->zuidawucha->value());
-            MIHANSHUXIAOSHU().dengwucha_zuobiao(ui->x_qidian->value(),ui->x_zhongdian->value(),ui->mishu->value(),ui->gudingwucha->value());
-            YUXUANPAMXING().dengchang_zuobiao(ui->jiyuanzhijing->value(),ui->shengcheng->value(),ui->shengchengjiao->value(),ui->huichengjiao->value(),ui->yuanxiujiao->value(),ui->jinxiujiao->value(),ui->zuidawucha->value(),1);
-            YUXUANPAMXING().dengwucha_zuobiao(ui->jiyuanzhijing->value(),ui->shengcheng->value(),ui->shengchengjiao->value(),ui->huichengjiao->value(),ui->yuanxiujiao->value(),ui->jinxiujiao->value(),ui->gudingwucha->value(),1);
+            if(ui->dengjianju->isChecked())
+            {
+                if(ui->xuanzequxian->currentIndex()==0)
+                {
+                    ui->zuidawuchaxianshi->setText(QString::number(MIHANSHUXIAOSHU().dengchang_zuobiao(ui->x_qidian->value(),ui->x_zhongdian->value(),ui->mishu->value(),ui->zuidawucha->value())));
+                    ui->quxianduanshuxianshi->setText(QString::number(changdu_dengchang));
+                }
+                else
+                {
+                    ui->quxianduanshuxianshi->setText(QString::number(YUXUANPAMXING().dengchang_zuobiao(ui->jiyuanzhijing->value(),ui->shengcheng->value(),ui->shengchengjiao->value(),ui->huichengjiao->value(),ui->yuanxiujiao->value(),ui->jinxiujiao->value(),ui->zuidawucha->value(),1)));
+                    ui->zuidawuchaxianshi->setText(QString::number(maxError));
+
+                }
+            }
+
+            if(ui->dengwucha->isChecked())
+            {
+                if(ui->xuanzequxian->currentIndex()==0)
+                {
+                    ui->zuidawuchaxianshi->setText(QString::number(ui->gudingwucha->value()));
+                    ui->quxianduanshuxianshi->setText(QString::number(MIHANSHUXIAOSHU().dengwucha_zuobiao(ui->x_qidian->value(),ui->x_zhongdian->value(),ui->mishu->value(),ui->gudingwucha->value())));
+                }
+                else
+                {
+                    ui->zuidawuchaxianshi->setText(QString::number(ui->gudingwucha->value()));
+                    ui->quxianduanshuxianshi->setText(QString::number(YUXUANPAMXING().dengwucha_zuobiao(ui->jiyuanzhijing->value(),ui->shengcheng->value(),ui->shengchengjiao->value(),ui->huichengjiao->value(),ui->yuanxiujiao->value(),ui->jinxiujiao->value(),ui->gudingwucha->value(),1)));
+                }
+            }
 
             shengchengyuanlujing=1;
         }
@@ -300,7 +324,15 @@ void MainWindow::on_shengchengdaojulujing_clicked()//点击生成刀具路径
             MIHANSHUXIAOSHU().compute_toolcompensateright(ui->dengwucha->isChecked(),ui->daojubanjing->value(),ui->mishu->value());
         }
 
-        shengchengdaojulujing=1;
+        MIHANSHUXIAOSHU().summit_error();
+        if(error_flag)
+        {
+            QMessageBox::warning(this,"过切警告","请更改刀具半径或检查刀补方向");
+        }
+        else
+        {
+            shengchengdaojulujing=1;
+        }
     }
 }
 
@@ -308,7 +340,7 @@ void MainWindow::on_jinxingfangzhen_clicked()//点击开始仿真
 {
     if(ui->bijinfangfa->isChecked())
     {
-        QMessageBox::warning(this,"参数错误","请在“机床参数”中填入工件的加工厚度");
+        QMessageBox::warning(this,"未选择逼近方法","请在“插补参数”中选择逼近方法");
     }
     else
     {
@@ -325,14 +357,7 @@ void MainWindow::on_jinxingfangzhen_clicked()//点击开始仿真
             else
             {
                 kaishifangzhen=1;
-                if(ui->xuanzequxian->currentIndex()==0)
-                {
-                    timer->start(10000/ui->jinjisudu->value());
-                }
-                else
-                {
-                    timer->start(10000/ui->jinjisudu->value());
-                }
+                timer->start(10000/ui->jinjisudu->value());
                 update();
             }
         }
@@ -860,7 +885,7 @@ void MainWindow::jiShiQi()//仿真计时函数
     {
         if(kaishifangzhen)
         {
-            time+=50;
+            time+=60;
             currentProgress=(time*100)/changdu_compensate;
             ui->progressBar->setValue(currentProgress);
         }
@@ -870,11 +895,19 @@ void MainWindow::jiShiQi()//仿真计时函数
         }
     }
 
+    if(ui->xuanzequxian->currentIndex()==0 && time>=changdu_compensate && kaishifangzhen==1)//幂函数完成
+    {
+        time=0;
+        QMessageBox::information(this,"加工完成","加工完成");
+        ui->progressBar->setValue(0);
+        return;
+    }
+
     if(ui->xuanzequxian->currentIndex()==1 && time<COMX.length())//凸轮走刀
     {
         if(kaishifangzhen)
         {
-            time+=50;
+            time+=60;
             currentProgress=(time*100)/COMX.length();
             ui->progressBar->setValue(currentProgress);
         }
@@ -884,15 +917,7 @@ void MainWindow::jiShiQi()//仿真计时函数
         }
     }
 
-    if(ui->xuanzequxian->currentIndex()==0 && time>=changdu_compensate)//幂函数完成
-    {
-        time=0;
-        QMessageBox::information(this,"加工完成","加工完成");
-        ui->progressBar->setValue(0);
-        return;
-    }
-
-    if(ui->xuanzequxian->currentIndex()==1 && time>=COMX.length())//凸轮完成
+    if(ui->xuanzequxian->currentIndex()==1 && time>=COMX.length() && kaishifangzhen==1)//凸轮完成
     {
         time=0;
         QMessageBox::information(this,"加工完成","加工完成");
@@ -901,15 +926,7 @@ void MainWindow::jiShiQi()//仿真计时函数
     }
 
     update();
-
-    if(ui->xuanzequxian->currentIndex()==0)
-    {
-        timer->start(10000/ui->jinjisudu->value());
-    }
-    else
-    {
-        timer->start(10000/ui->jinjisudu->value());
-    }
+    timer->start(10000/ui->jinjisudu->value());
 }
 
 void MainWindow::on_dengwucha_toggled(bool checked)//更新最大误差和段数
@@ -952,6 +969,9 @@ void MainWindow::on_xuanzequxian_currentChanged(int index)//更换曲线类型�
 {
     shengchengdaojulujing=0;
     shengchengyuanlujing=0;
+    kaishifangzhen=0;
+    ui->progressBar->setValue(0);
+    ui->horizontalSlider->setValue(100);
 }
 
 MainWindow::~MainWindow()
