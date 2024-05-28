@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer,SIGNAL(timeout()),this,SLOT(jiShiQi()));
 
     ui->xuanzequxian->setCurrentIndex(0);
+    ui->x_qidian->setRange(0,200);
     ui->x_zhongdian->setRange(0,200);
     ui->mishu->setRange(0,1);
     ui->mishu->setDecimals(3);
@@ -103,7 +104,7 @@ void MainWindow::paint()//主绘图函数
         mainpainter.drawRect(0,0,paintWidth,paintHeight);
         mainpainter.translate((ui->paint_widget->width()/2),(-9+ui->paint_widget->height()/2));
         mainpainter.scale(paintScale,-paintScale);
-        mainpainter.setPen(QPen(Qt::blue,0.5,Qt::SolidLine,Qt::RoundCap));
+        mainpainter.setPen(QPen(Qt::blue,1,Qt::SolidLine,Qt::RoundCap));
         if(ui->xuanzequxian->currentIndex()==0)//幂函数
         {
             if(ui->dengjianju->isChecked())//等间距
@@ -151,7 +152,7 @@ void MainWindow::paint()//主绘图函数
         toolpainter.drawRect(0,0,paintWidth,paintHeight);
         toolpainter.translate((ui->paint_widget->width()/2),(-9+ui->paint_widget->height()/2));
         toolpainter.scale(paintScale,-paintScale);
-        toolpainter.setPen(QPen(Qt::green,0.5,Qt::SolidLine,Qt::RoundCap));
+        toolpainter.setPen(QPen(Qt::green,1,Qt::SolidLine,Qt::RoundCap));
         if(ui->xuanzequxian->currentIndex()==0)//幂函数
         {            
             for(int j=1;j<changdu_compensate;j++)
@@ -177,7 +178,7 @@ void MainWindow::paint()//主绘图函数
         compensatepainter.drawRect(0,0,paintWidth,paintHeight);
         compensatepainter.translate((ui->paint_widget->width()/2),(-9+ui->paint_widget->height()/2));
         compensatepainter.scale(paintScale,-paintScale);
-        compensatepainter.setPen(QPen(QColor(255,200,200),0.8));
+        compensatepainter.setPen(QPen(QColor(255,200,200),1));
 
         float daojubanjing=ui->daojubanjing->value();
         if(ui->xuanzequxian->currentIndex()==0)//幂函数

@@ -1,0 +1,11 @@
+# ninja log v5
+2	1116	7385879419777012	NC_autogen/timestamp	d4b7eb7533d717c3
+2	1116	7385879419777012	NC_autogen/mocs_compilation.cpp	d4b7eb7533d717c3
+2	1116	7385879419777012	E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-MinSizeRel/NC_autogen/timestamp	d4b7eb7533d717c3
+2	1116	7385879419777012	E:/Program/CNC/NC/build/Desktop_Qt_6_7_1_MinGW_64_bit-MinSizeRel/NC_autogen/mocs_compilation.cpp	d4b7eb7533d717c3
+1144	3232	7385879442660596	CMakeFiles/NC.dir/mihanshuxiaoshu.cpp.obj	45c9723f7ec3c14f
+1155	3329	7385879443454632	CMakeFiles/NC.dir/yuxuanpanxing.cpp.obj	eaea98bd03fb20f6
+1126	3523	7385879446324646	CMakeFiles/NC.dir/main.cpp.obj	6fa777785cca44b
+1117	3622	7385879446849264	CMakeFiles/NC.dir/NC_autogen/mocs_compilation.cpp.obj	e160de3d5cf710ab
+1134	5136	7385879462569398	CMakeFiles/NC.dir/mainwindow.cpp.obj	87a6851cb656f74f
+5136	5308	7385879464250618	NC.exe	a3fdd45f8cb59ef7

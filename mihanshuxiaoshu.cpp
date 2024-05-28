@@ -90,6 +90,8 @@ double MIHANSHUXIAOSHU::dengwucha_zuobiao(double a, double b, double zhishu,doub
     dengwucha_x_nodes.clear();
     dengwucha_y_nodes.clear();
 
+    dengwucha_x_nodes.resize(1);
+
     dengwucha_x_nodes.push_back(a);
     double new_node;//第一个节点
     double init_step = 0.1;//设置初始步长
