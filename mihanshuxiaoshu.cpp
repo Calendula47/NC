@@ -1,4 +1,4 @@
-#include "mihanshuxiaoshu.h"
+	#include "mihanshuxiaoshu.h"
 #include <QDebug>
 #include <QtMath>
 #include <QPainter>

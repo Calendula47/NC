@@ -324,15 +324,7 @@ void MainWindow::on_shengchengdaojulujing_clicked()//点击生成刀具路径
             MIHANSHUXIAOSHU().compute_toolcompensateright(ui->dengwucha->isChecked(),ui->daojubanjing->value(),ui->mishu->value());
         }
 
-        MIHANSHUXIAOSHU().summit_error();
-        if(error_flag)
-        {
-            QMessageBox::warning(this,"过切警告","请更改刀具半径或检查刀补方向");
-        }
-        else
-        {
-            shengchengdaojulujing=1;
-        }
+        shengchengdaojulujing=1;
     }
 }
 
@@ -977,4 +969,130 @@ void MainWindow::on_xuanzequxian_currentChanged(int index)//更换曲线类型�
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+#include "GeneticAlgorithm.h"
+#include <algorithm>
+#include <random>
+#include <iostream>
+
+// 构造函数
+GeneticAlgorithm::GeneticAlgorithm(int rows, int cols, int populationSize, int generations, double mutationRate)
+    : rows(rows), cols(cols), populationSize(populationSize), generations(generations), mutationRate(mutationRate) {}
+
+// 生成个体
+std::vector<std::vector<int>> GeneticAlgorithm::generateIndividual() const {
+    std::vector<std::vector<int>> individual(rows, std::vector<int>(cols, 0));
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, cols - 1);
+    for (int i = 0; i < rows; ++i) {
+        int index = dis(gen);
+        individual[i][index] = 1;
+    }
+    return individual;
+}
+
+// 生成种群
+std::vector<std::vector<std::vector<int>>> GeneticAlgorithm::generatePopulation() const {
+    std::vector<std::vector<std::vector<int>>> population;
+    for (int i = 0; i < populationSize; ++i) {
+        population.push_back(generateIndividual());
+    }
+    return population;
+}
+
+// 适应度函数
+double GeneticAlgorithm::fitness(const std::vector<std::vector<int>>& individual) const {
+    double fit = 0.0;
+    // 假设适应度函数为所有元素之和（即每行中1的位置）
+    for (int i = 0; i < rows; ++i) {
+        fit += std::distance(individual[i].begin(), std::find(individual[i].begin(), individual[i].end(), 1));
+    }
+    return fit;
+}
+
+// 选择操作
+std::vector<std::vector<int>> GeneticAlgorithm::selection() const {
+    std::vector<double> fitnessValues;
+    for (const auto& ind : population) {
+        fitnessValues.push_back(fitness(ind));
+    }
+
+    std::discrete_distribution<int> dist(fitnessValues.begin(), fitnessValues.end());
+    std::mt19937 gen{std::random_device{}()};
+    return population[dist(gen)];
+}
+
+// 交叉操作
+std::pair<std::vector<std::vector<int>>, std::vector<std::vector<int>>> GeneticAlgorithm::crossover(const std::vector<std::vector<int>>& parent1, const std::vector<std::vector<int>>& parent2) const {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, rows - 1);
+    int crossover_point = dis(gen);
+
+    std::vector<std::vector<int>> child1 = parent1;
+    std::vector<std::vector<int>> child2 = parent2;
+
+    for (int i = crossover_point; i < rows; ++i) {
+        std::swap(child1[i], child2[i]);
+    }
+
+    return {child1, child2};
+}
+
+// 变异操作
+void GeneticAlgorithm::mutate(std::vector<std::vector<int>>& individual) const {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(0.0, 1.0);
+    std::uniform_int_distribution<> row_dis(0, rows - 1);
+    std::uniform_int_distribution<> col_dis(0, cols - 1);
+
+    if (dis(gen) < mutationRate) {
+        int row = row_dis(gen);
+        int new_col = col_dis(gen);
+
+        // 将当前行的1移动到新的列位置
+        std::fill(individual[row].begin(), individual[row].end(), 0);
+        individual[row][new_col] = 1;
+    }
+}
+
+// 获取最优个体
+std::vector<std::vector<int>> GeneticAlgorithm::getBestIndividual() const {
+    return *std::max_element(population.begin(), population.end(), [this](const auto& a, const auto& b) {
+        return fitness(a) < fitness(b);
+    });
+}
+
+// 运行遗传算法
+void GeneticAlgorithm::run() {
+    population = generatePopulation();
+    for (int generation = 0; generation < generations; ++generation) {
+        std::vector<std::vector<std::vector<int>>> newPopulation;
+        for (int i = 0; i < populationSize / 2; ++i) {
+            auto parent1 = selection();
+            auto parent2 = selection();
+            auto [child1, child2] = crossover(parent1, parent2);
+            mutate(child1);
+            mutate(child2);
+            newPopulation.push_back(child1);
+            newPopulation.push_back(child2);
+        }
+        population = newPopulation;
+    }
+}
+
+// 打印最优解
+void GeneticAlgorithm::printBestSolution() const {
+    auto best = getBestIndividual();
+    std::cout << "Best solution with fitness " << fitness(best) << ":\n";
+    for (const auto& row : best) {
+        for (int val : row) {
+            std::cout << val << " ";
+        }
+        std::cout << "\n";
+    }
 }
